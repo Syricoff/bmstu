@@ -13,8 +13,8 @@ d m a b
 
 int main()
 {
-    int d, m;
-    double a, b;
+    int d{}, m{};
+    double a{}, b{};
     std::cin >> d >> m >> a >> b;
     double z = pow(d, 2) + pow(sin(pow((m + 4), 2)), 2) + sqrt(fabs((a - pow(b, m)) / sqrt(pow(b, 2) + 1)));
     double r = (tan(pow((m + 1), 2)) + 4.12 * exp(d - 1)) / (log(fabs(d + m + pow(1.75, 5)))) + 3 * cos(2 * b);
