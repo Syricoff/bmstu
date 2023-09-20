@@ -4,7 +4,9 @@
 /*
 Задание 3
 Входные данные для проверки:
-
+1 1 -> 12
+0.1 0.3 -> 9
+-0.55 -0.5 -> 9
 */
 
 int main()
@@ -17,7 +19,5 @@ int main()
     int sum = int(fract_part * 10) % 10 +
               int(fract_part * 100) % 10 +
               int(fract_part * 1000) % 10;
-    std::cout << d << '\n'
-              << fract_part << '\n'
-              << sum << std::endl;
+    std::cout << sum << std::endl;
 }
