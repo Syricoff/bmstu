@@ -1,10 +1,13 @@
 #include <cmath>
-#include <iomanip>
 #include <iostream>
 
 /*
 Задание 1
 Входные данные для проверки:
+-1
+1
+0.5
+3
 */
 
 int main()
@@ -15,7 +18,7 @@ int main()
     {
         y = -a;
     }
-    else if (0 < a < 2)
+    else if (0 <= a and a <= 2)
     {
         y = -pow(a, 2);
     }

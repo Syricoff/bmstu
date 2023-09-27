@@ -4,19 +4,30 @@
 /*
 Задание 2
 Входные данные для проверки:
-x y
--2 2 true
-3 2.645 true
--4 -2 true
-1 -1 false
+-2 -4
+-10 5
+-6 -10
+6 7
 */
 
 int main()
 {
-    double x{}, y{};
-    std::cin >> x >> y;
-    bool isInArea = (x >= 0 and y >= 0 and (pow(x, 2) + pow(y, 2) <= 16)) or 
-                    (x <= 0 and y >= 0 and (y - x <= 4)) or 
-                    (x <= 0 and y <= 0 and (x >= -4 and y >= -2));
-    std::cout << std::boolalpha << isInArea << std::endl;
+    double a{}, b{};
+    std::cin >> a >> b;
+    if (a == -10 or b == -10)
+    {
+        a = 1;
+        b = 1;
+    }
+    else if (a < 0 and b < 0)
+    {
+        a = 0;
+        b = 0;
+    }
+    else
+    {
+        (a > b) ? (b *= 1000) : (a *= 1000);
+    }
+
+    std::cout << a << " " << b << std::endl;
 }
