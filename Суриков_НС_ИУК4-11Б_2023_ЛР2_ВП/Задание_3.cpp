@@ -4,13 +4,15 @@
 /*
 Задание 3
 Входные данные для проверки:
-
+1	2	3	4	5	6	7	0
+4.4348	5.53342	5.46144	98	721.012	1.23823	443	Wrong input
 */
 
 int main()
 {
     int m{};
     double f{};
+    bool isCorrInp{ true };
     std::cin >> m;
     switch (m)
     {
@@ -36,8 +38,14 @@ int main()
         f = pow(m, 3) + 2 * (pow(m, 2) + 1);
         break;
     default:
-        f = 0;
+        isCorrInp = false;
         break;
     }
-    std::cout << f << std::endl;
+    if (isCorrInp)
+    {
+        std::cout << f << std::endl;
+    }
+    else {
+        std::cout << "Wrong input" << std::endl;
+    }
 }

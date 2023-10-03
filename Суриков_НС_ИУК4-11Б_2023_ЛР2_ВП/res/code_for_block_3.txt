@@ -1,0 +1,34 @@
+start
+io(ввод m)
+switch(m)
+case(1){ block$ 
+f=
+\ln|M + M^{2}| + \sqrt{14} $ }
+case(2){ block$ 
+f=
+\ln|M + M^{2}| + \sqrt{14} $ }
+case(3){ block$ 
+f=\frac{M + 3}{\log M} $ }
+case(4){ block$ 
+f=
+M^{3} + 2(M^{2} + 1) $ }
+case(5){ block$ 
+f=
+744-M^{2}\sin^{2}M $ }
+case(6){ block$ 
+f=
+\ln|1 + \sqrt{M}| $ }
+case(7){ block$ 
+f=
+M^{3} + 2(M^{2} + 1) $ }
+case(default){ block( isCorrInp = false ) }
+pc(A
+02
+03)
+if(
+isCorrInp 
+= True
+) then(да) { io(вывод f) }
+else(нет) { io(вывод 
+"Wrong input") }
+stop
