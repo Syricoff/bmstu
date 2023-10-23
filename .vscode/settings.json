@@ -49,5 +49,7 @@
         "stdexcept": "cpp",
         "streambuf": "cpp",
         "typeinfo": "cpp"
-    }
+    },
+    "cmake.sourceDirectory": "/home/syricoff/bmstu/ОП",
+    "C_Cpp.default.compilerPath": "/usr/bin/clang++"
 }
