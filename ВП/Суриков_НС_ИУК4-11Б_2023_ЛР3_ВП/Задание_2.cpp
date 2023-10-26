@@ -4,30 +4,19 @@
 /*
 Задание 2
 Входные данные для проверки:
--2 -4
--10 5
--10 -10
-6 7
+
 */
 
 int main()
 {
-    double a{}, b{};
-    std::cin >> a >> b;
-    if (a == -10 and b == -10)
+    int n{};
+    double x{}, a{};
+    std::cin >> n >> x >> a;
+    double p{pow(x + a, 2)};
+    for (int i = 0; i < n; i++)
     {
-        a = 1;
-        b = 1;
+        p = pow(p + a, 2);
     }
-    else if (a < 0 and b < 0)
-    {
-        a = 0;
-        b = 0;
-    }
-    else
-    {
-        (a > b) ? (b *= 1000) : (a *= 1000);
-    }
-
-    std::cout << a << " " << b << std::endl;
+    p += a;
+    std::cout << p << std::endl;
 }

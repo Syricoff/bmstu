@@ -1,0 +1,146 @@
+start
+
+for(i = 1(1\)m+1) {
+for(j = 1(1\)n+1){
+block$ A_{i-1, j-1} = 
+i + \frac{\sqrt{j}}{\sin(i)} $
+}
+}
+connect(A)
+-----------------
+connect(A)
+io(Матрица A:)
+for(i = 0(1\)m) {
+for(j = 0(1\)n){
+io$ A_{i, j} $
+}
+}
+pc(A
+3
+5)
+----------------
+pc(A
+3
+5)
+for(i = 0(1\)m) { for(j = 0(1\)n){ 
+if$ A_{i, j} < 
+minElem  $ then(да)
+{ block$ minElem = A_{i, j} $
+  block$ minRow = i $ }
+if$ A_{i, j} > 
+maxElem  $ then(да)
+{ block$ maxElem = A_{i, j} $ block$ maxRow = i $ }
+}
+}
+pc(B
+5
+6)
+-----------------
+pc(B
+5
+6)
+for(i = 0(1\)m) { for(j = 0(1\)n){ block$ B_{i, j} = A_{i, j} $ } }
+for(j = 0(1\)n){ block$ temp = B_{minRow, j} $ 
+                 block$ B_{minRow, j} = 
+                        B_{maxRow, j} $
+                 block$ B_{maxRow, j} = temp $ }
+connect(B)
+-----------------
+connect(B)
+io(Матрица B:)
+for(i = 0(1\)m) {
+for(j = 0(1\)n) {
+io$ B_{i, j} $ } }
+pc(C
+6
+8)
+------------------
+pc(C
+6
+8)
+for(i = 0(1\)6) { for(j = 0(1\)i + 1){
+if(i == j) then(да)
+{ block$ C_{i, j} = 6 $ } 
+else(нет)
+{ block$ C_{i, j} = i + 1 $} } }
+pc(D
+8
+9)
+-----------------
+pc(D
+8
+9)
+io(Матрица C:)
+for(i = 0(1\)m) {
+for(j = 0(1\)n) {
+io$ C_{i, j} $ } }
+pc(E
+9
+11)
+----------
+pc(E
+9
+11)
+for(i = 0(1\)m) { for(j = 0(1\)6){ for(k = 0(1\)n)
+{ block$ D_{i, j} = 
+D_{i, j} + B_{i, k} * C_{k, j} $ } } }
+connect(C)
+-----------------
+connect(C)
+io(Матрица D:)
+for(i = 0(1\)m) {
+for(j = 0(1\)n) {
+io$ D_{i, j} $ } }
+pc(F
+11
+12)
+-----------
+pc(F
+11
+12)
+for(i = 0(1\)m) { for(j = 0(1\)n){ block$ E_{i, j} = D_{i, j} $ } }
+pc(G
+12
+13)
+-----------------
+pc(G
+12
+13)
+for(i = 0(1\)2){ for(j = 2(1\)4){ block$ temp = E_{i, j} $ 
+                 block$ E_{i, j} = E_{i, j + 2} $
+                 block$ E_{i, j + 2} = temp $ } }
+connect(D)
+-----------------
+connect(D)
+for(i = 2(1\)4){ for(j = 0(1\)2){ block$ temp = E_{i, j} $ 
+                 block$ E_{i, j} = E_{i + 2, j} $
+                 block$ E_{i + 2, j} = temp $ } }
+pc(H
+13
+14)
+-----------------
+pc(H
+13
+14)
+io(Матрица E:)
+for(i = 0(1\)m) {
+for(j = 0(1\)n) {
+io$ E_{i, j} $ } }
+pc(I
+14
+16)
+----------------------------------------------------------------
+pc(I
+14
+16)
+for(i = 0(1\)m) { for(j = 0(1\)n) { 
+if$ E_{i, j} < 0 $ then(да)
+{ block$ sumNeg =
+sumNeg + E_{i, j} $ } } }
+
+io(Сумма 
+отрицательных 
+элементов E: 
+sumNeg)
+
+stop
