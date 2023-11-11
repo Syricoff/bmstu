@@ -32,32 +32,32 @@ int main()
     if (isOnVertex)
     {
         cout << "Точка a лежит на границе многоугольника." << endl;
-        return 0;
-    }
-
-    int count = 0;
-    for (int i = 0; i < n; i++)
-    {
-        int x1 = x[i];
-        int y1 = y[i];
-        int x2 = x[(i + 1) % n];
-        int y2 = y[(i + 1) % n];
-
-        if (((y1 <= ya && ya < y2) || (y2 <= ya && ya < y1)) &&
-            (xa < (x2 - x1) * (ya - y1) / (y2 - y1) + x1))
-        {
-            count++;
-        }
-    }
-
-    if (count % 2 == 1)
-    {
-        cout << "Точка a находится внутри многоугольника" << endl;
     }
     else
     {
-        cout << "Точка a находится снаружи многоугольника" << endl;
-    }
+        int count = 0;
+        for (int i = 0; i < n; i++)
+        {
+            int x1 = x[i];
+            int y1 = y[i];
+            int x2 = x[(i + 1) % n];
+            int y2 = y[(i + 1) % n];
 
+            if (((y1 <= ya && ya < y2) || (y2 <= ya && ya < y1)) &&
+                (xa < (x2 - x1) * (ya - y1) / (y2 - y1) + x1))
+            {
+                count++;
+            }
+        }
+
+        if (count % 2 == 1)
+        {
+            cout << "Точка a находится внутри многоугольника" << endl;
+        }
+        else
+        {
+            cout << "Точка a находится снаружи многоугольника" << endl;
+        }
+    }
     return 0;
 }
