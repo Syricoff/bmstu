@@ -1,0 +1,37 @@
+start(gcd(a, b\))
+if(a == 0) then(да) {fn(return b)}
+fn(return
+gcd(b mod a, a\))
+stop
+
+start(lcm(a, b\))
+fn(return (a * b\) / 
+gcd(a, b\))
+stop
+
+start
+io(Ввод: n)
+for(i = 0(1\)n){ io(Ввод: arr[i])}
+
+fn(lcm_res = 
+lcm(arr[0], arr[1]\))
+
+fn(gcd_res = 
+gcd(arr[0], arr[1]\))
+connect(A)
+
+connect(A)
+
+for(i = 2(1\)n)
+{ 
+fn(lcm_res = 
+lcm(lcm_res,arr[i]\))
+fn(gcd_res = 
+gcd(gcd_res,arr[i]\))
+}
+
+io(Вывод: 
+"НОК", lcm_res)
+io(Вывод: 
+"НОД", gcd_res)
+stop

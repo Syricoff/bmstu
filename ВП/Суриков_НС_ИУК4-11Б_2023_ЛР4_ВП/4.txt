@@ -1,0 +1,53 @@
+start
+io(Ввод: n, m)
+for(i = 0(1\)n)
+{
+for(j = 0(1\)m)
+{
+io(Ввод: X[i][j])
+}
+}
+pc(A
+13
+14)
+
+pc(A
+13
+14)
+block(max_index = 0
+max_elem = -10e10)
+for(i = 0(1\)n)
+{
+for(j = 0(1\)m)
+{
+if(X[i][j] < min_elem)
+then(да)
+{
+block(min_elem = X[i][j])
+}
+block(min_elems[i] = 
+min_elem)
+if(min_elem > 
+max_elem)
+then(да)
+{block(max_elem = 
+min_elem
+max_index = i)}
+}
+}
+connect(A)
+
+connect(A)
+block(max_col_index = 0)
+for(j = 0(1\)m)
+{
+if(X[max_index][j] 
+== max_elem)
+then(да){
+block(max_col_index = j)
+}}
+io(Вывод: 
+(max_index, 
+max_col_index\))
+
+stop

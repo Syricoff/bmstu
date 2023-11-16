@@ -25,19 +25,15 @@ int main() {
     }
 
     int lcm_res = lcm(arr[0], arr[1]);
+    int gcd_res = gcd(arr[0], arr[1]);
+
 
     for (int i = 2; i < n; i++) {
         lcm_res = lcm(lcm_res, arr[i]);
-    }
-
-    int gcd_res = gcd(arr[0], arr[1]);
-
-    for (int i = 2; i < n; i++) {
         gcd_res = gcd(gcd_res, arr[i]);
+
     }
 
     cout << "НОК: " << lcm_res << endl;
     cout << "НОД: " << gcd_res << endl;
-
-    return 0;
 }

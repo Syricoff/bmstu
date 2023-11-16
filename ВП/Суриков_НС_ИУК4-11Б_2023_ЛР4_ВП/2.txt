@@ -1,0 +1,81 @@
+start
+
+io(Вывод: 
+"Введите номер 
+числа Фибоначчи")
+io(Ввод: n)
+
+block(fib2[0] = 1)
+
+if(n <= 3) then(да)
+{
+connect(A)
+
+
+
+connect(B)
+}
+
+else(нет)
+{
+if(n == 1) then(да){ io(Вывод: 
+"Число 
+Фибоначчи: 0")}
+if(n == 2) then(да){ io(Вывод: 
+"Число 
+Фибоначчи: 1")}
+}
+stop
+
+connect(A)
+for(i = 3(1\)n)
+{
+connect(C)
+
+connect(C)
+block(carry = 0)
+for(j = 0(1\)MAX_SIZE)
+{
+
+block(digitSum = fib1[j] + 
+fib2[j] + carry)
+
+block(result[j] = 
+digitSum mod 10)
+
+block(carry = 
+digitSum / 10)
+
+}
+connect(I)
+
+connect(I)
+for(j = 0(1\)MAX_SIZE)
+{
+
+block(fib1[j] = fib2[j]
+fib2[j] = result[j])
+
+}
+connect(D)
+
+connect(D)
+io(Вывод:
+"Число Фибоначчи:")
+for(j = 
+MAX_SIZE-1(-1\)0)
+{
+
+if(result[i] != 0)
+then(да)
+{
+
+io(Вывод: result[i])
+
+}
+
+}
+
+}
+
+connect(B)

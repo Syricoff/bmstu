@@ -1,0 +1,32 @@
+start
+io(Ввод: n)
+pc(A
+21
+22)
+
+pc(A
+21
+22)
+for(i = 0(1\)n)
+{io(Ввод: y[i])}
+for(i = 0(1\)9)
+{io(Ввод: x[i])}
+
+block(found = false)
+connect(A)
+
+connect(A)
+for(i = 0(1\)9)
+{
+block(found = false)
+for(j = 0(1\)n)
+{
+if(x[i] == y[j])
+then(да)
+{block(found = true)}
+}
+if(!found)
+then(да)
+{io(Вывод: x[i], )}
+}
+stop

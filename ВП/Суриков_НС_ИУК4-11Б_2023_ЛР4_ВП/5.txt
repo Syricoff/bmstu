@@ -1,0 +1,83 @@
+start
+
+io(Ввод: n, m)
+connect(A)
+
+connect(A)
+for(i = 0(1\)n)
+{
+for(j = 0(1\)m)
+{
+io(Ввод: A[i][j])
+}
+}
+pc(A
+16
+17)
+
+pc(A
+16
+17)
+for(i = 0(1\)n)
+{
+for(j = 0(1\)m)
+{
+block(is_special = true)
+block(sum = 0)
+connect(B)
+
+connect(B)
+for(k = 0(1\)n){
+
+if(k != i) 
+then(да)
+{
+block(sum = 
+sum + A[k][j])
+}
+}
+if(A[i][j] <= sum)
+then(да)
+{block(is_special = false)}
+
+
+for(k = 0(1\)m)
+{
+if(k != j и
+ A[i][k] > A[i][j])
+then(да)
+{
+block(is_special = false)
+}
+}
+pc(B
+17
+18
+)
+
+pc(B
+17
+18
+)for(k = 0(1\)j)
+{
+if(A[i][k] < A[i][j])
+then(да)
+{
+block(is_special = false)
+}
+}
+if(is_special)
+then(да)
+{
+block(count = 
+count + 1)
+}
+connect(C)
+
+connect(C)
+}}
+
+io(Вывод: 
+"Количество особых 
+элементов:", count)
+stop

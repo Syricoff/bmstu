@@ -1,0 +1,19 @@
+start
+io(Ввод: n)
+for(i = 0(1\)n)
+{
+io(Ввод: a[i])
+}
+connect(A)
+
+connect(A)
+for(i = 2(1\)n-1)
+{
+if(a[i] > a[i-1] и
+ a[i] < a[i+1])
+then(да){
+block(count = 
+count + 1)}
+}
+io(Вывод: count)
+stop

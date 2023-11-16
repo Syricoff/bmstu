@@ -4,14 +4,9 @@ using namespace std;
 int main()
 {
     int n{}, m{};
-    cout << "Введите количество строк: ";
-    cin >> n;
-    cout << "Введите количество столбцов: ";
-    cin >> m;
+    cin >> n >> m;
 
     int A[n][m];
-    // Ввод элементов матрицы
-    cout << "Введите элементы матрицы:\n";
     for (int i = 0; i < n; i++)
     {
         for (int j = 0; j < m; j++)
