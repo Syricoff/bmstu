@@ -1,0 +1,52 @@
+start
+
+block(nextToken = NULL)
+
+if(str != NULL) 
+then(да)
+{ block(nextToken = str) }
+
+if(nextToken == 
+NULL) 
+then(да)
+{ fn(return NULL) }
+
+while(nextToken != '\\0'
+И сл.лекс. != NULL)
+{block(nextToken = 
+nextToken + 1)}
+
+connect(A)
+
+connect(A)
+
+if(nextToken == '\\0')
+then(да){ fn(return NULL)}
+block(token = nextToken)
+while(nextToken != '\0' 
+И сл.лекс == NULL)
+{block(nextToken = 
+nextToken + 1)}
+if(nextToken != '\\0')
+then(да){
+block(nextToken = '\\0')
+block(nextToken = 
+nextToken + 1)
+}
+
+fn(return token)
+stop
+----
+start
+io(Ввод: str)
+block(delimiters = " ,.!")
+fn(token = 
+STRTOK
+(str, delimiters\))
+while(token != NULL)
+{io(Вывод: token)
+fn(token = 
+STRTOK
+(NULL, delimiters\))
+    }
+stop

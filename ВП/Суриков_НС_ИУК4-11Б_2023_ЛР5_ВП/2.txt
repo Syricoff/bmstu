@@ -1,0 +1,23 @@
+start
+if(start >= end)
+then(да){ fn(return) }
+block(char temp = 
+str[start]
+str[start] = 
+str[end]
+str[end] = temp)
+fn(REVERSE(str, 
+start + 1, 
+end - 1\))
+
+stop
+
+start
+io(Ввод: str)
+fn(REVERSE(str, 
+0, 
+длина(str\)-1\))
+
+io(Вывод: str)
+
+stop

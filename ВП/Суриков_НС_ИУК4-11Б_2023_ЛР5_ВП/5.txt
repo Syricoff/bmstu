@@ -1,0 +1,48 @@
+start
+io(Ввод: str)
+block(delimiters = " ,.?!")
+
+pc(A
+14
+15)
+
+pc(A
+14
+15)
+
+fn(token = слово 
+из sentence 
+по delimiters)
+block(count = 0)
+while(token != NULL)
+{
+
+connect(A)
+
+
+
+connect(B)
+
+if(zCount == 2)
+then(да){block(count = 
+count + 1)}
+fn(token = 
+следующее
+слово из 
+sentence 
+по delimiters)
+}
+io(Вывод: count)
+stop
+
+connect(A)
+
+block(len = длина(token\))
+block(zCount = 0)
+for(i = 0(1\)len)
+{
+if(token[i] == 'z')
+then(да){block(zCount = 
+zCount + 1)}}
+
+connect(B)

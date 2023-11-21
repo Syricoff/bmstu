@@ -1,0 +1,61 @@
+start
+block(length = 
+длина(word\))
+for(i = 1(1\)length)
+{
+if(word[i] < 
+word[i - 1])
+then(да)
+{
+fn(return false)
+}
+}
+fn(return true)
+
+stop
+-----
+start
+block(length = 
+длина(word\))
+for(i = 0(1\)length)
+{
+block(count = 0)
+for(j = 0(1\)length)
+{
+if(word[j] == 
+word[i])
+then(да)
+{
+block(count = 
+count + 1)
+}
+}
+if(count < 2)
+then(да)
+{
+fn(return false)
+}
+}
+fn(return true)
+stop
+----
+start
+io(Ввод: sentence)
+block(delimiters = " ,.?!")
+fn(token = слово 
+из sentence 
+по delimiters)
+while(token != NULL){
+if(isOrd(token\) и 
+hasRep(token\))
+then(да)
+{
+io(Вывод: token)
+}
+fn(token = 
+следующее
+слово из 
+sentence 
+по delimiters)
+}
+stop

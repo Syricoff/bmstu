@@ -1,0 +1,51 @@
+start
+
+io(Ввод: str)
+
+fn(len = длина str)
+
+pc(A
+02
+03)
+
+pc(A
+02
+03)
+
+for(i = 0(1\)len){
+if(str[i] цифра)
+then(да){ 
+block(count_7 = 0
+start = i )
+
+connect(A)
+
+
+
+connect(B)
+
+}
+}
+stop
+
+connect(A)
+
+while(i < len
+и str[i] цифра)
+{
+if(str[i] == "7")
+then(да){
+block(count_7 = 
+count_7 + 1)
+}
+
+block(i = i + 1)
+}
+
+block(end = i - 1)
+if(count_7 <= 2)
+then(да){
+for(j = start(1\)end){ io(Вывод: str[j])}
+io(Вывод: \\n)}
+
+connect(B)

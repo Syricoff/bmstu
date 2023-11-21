@@ -1,0 +1,1 @@
+bool isOrd(char *word)
