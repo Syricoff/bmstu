@@ -1,0 +1,94 @@
+start
+fn$ return 
+\frac{\sqrt{x^{2} + y^{3}}}{x + y} $
+stop
+
+start
+if(i == 1)
+then(да){
+fn(return 3)}
+else(нет){
+fn$ return
+zp_{i-1}+\sqrt{|p_{i-1} + 1|} $
+}
+stop
+
+start
+if(i == 1)
+then(да){
+fn(return 8)}
+else(нет){
+fn$ return
+h_{i-1}/(2z)+3h_{i-1} $
+}
+stop
+
+start
+for(i = 0(1\)size){
+if(i mod 2 == 0)
+then(да){
+block(sequence[i] = 
+sequence[i]*multiplier)}}
+stop
+
+start
+io(Вывод: "[")
+for(i = 0(1\)size-1){
+io(Вывод: 
+sequence[i], ", ")}
+io(Вывод: 
+sequence[size-1], "]")
+stop
+
+start
+for(i = 0(1\)size){
+fn(sequence[i] = 
+рандомное число 
+от 0 до 10)}
+stop
+
+start
+io(Вывод: "Enter s, t: ")
+io(Ввод: s, t)
+block$ a = 
+f(s,t)+f(s^{2},t^{2}) $
+block$ b = f(s,t^{2}) $
+io(Вывод: "a: ", a)
+io(Вывод: "b: ", b)
+
+io(Вывод: "Enter z: ")
+io(Ввод: z)
+
+connect(A)
+
+connect(A)
+
+block$ c = (p_{5}+h_{3})^{2} $
+io(Вывод: "c: ", c)
+
+block(i = 8
+j = 9
+k = 10)
+
+fn(fillArray(n, i\)
+fillArray(m, j\)
+fillArray(l, k\))
+
+fn(multEven(n, i, a\)
+multEven(m, j, b\)
+multEven(l, k, c\))
+
+connect(B)
+
+connect(B)
+
+io(Вывод: "n: ")
+fn(printArray(n, i\))
+
+io(Вывод: "m: ")
+fn(printArray(m, j\))
+
+io(Вывод: "l: ")
+fn(printArray(l, k\))
+
+stop
