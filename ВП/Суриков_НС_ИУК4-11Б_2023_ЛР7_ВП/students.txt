@@ -1,0 +1,3 @@
+Ivanov 1 4.5 *-*-*
+Petrov 2 3.8 -**--
+Sidorov 1 4.2 **-*-

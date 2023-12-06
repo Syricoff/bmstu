@@ -323,7 +323,8 @@ void deleteStudent(Student *&students, int &studentsNumber)
     delete[] students;
     students = temp;
     studentsNumber--;
-    cout << "\nУдаление студента выполнено успешно!\n\nДля возврата в меню нажмите enter... ";
+    cout << "\nУдаление студента выполнено успешно!" << endl;
+    cout << "\nДля возврата в меню нажмите enter... ";
     getchar(); // ожидание нажатия клавиши
 }
 void displayStudentList(Student *students, int studentsNumber, bool silentMode, bool _fileOutput, int _sortMode, bool _descendingSort)
