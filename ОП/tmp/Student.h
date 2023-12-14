@@ -1,5 +1,4 @@
 //
-// Created by Norik Saroyan on 06.10.23.
 //
 
 #ifndef OP_STUDENT_H

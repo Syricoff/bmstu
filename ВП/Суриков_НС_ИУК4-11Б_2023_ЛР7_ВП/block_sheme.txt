@@ -1,31 +1,83 @@
 start
-do_while$ |a1 - a2| \leq e $ {
-block(a1 = a2)
-block(sum = sum + a1)
-block$ a2 = 
-\frac{2n}{(2 + n)^{2}} + \frac{1}{(n + 1)^{2}} $
-block(n = n + 1)
+fn(открываем файл)
+if(файл открыт)
+then(да)
+{
+for(i = 0(1\)count)
+{
+io(Запись в файл
+students[i].surname)
+io(Запись в файл
+students[i].group)
+io(Запись в файл
+students[i].average)
+for(j = 0(1\)5)
+{
+if(students[i].
+disciplines[j])
+then(да)
+{io(Запись в файл: 
+"*")}
+else(нет)
+{io(Запись в файл: 
+"-")}
 }
-io(вывод sum)
-stop
----------
-start
-io(ввод n, x, a)
-for(0(n\)1){ block$ p = (p + a)^{2} $ }
-connect(A)
 
-connect(A)
-block(p = p + a)
-io(вывод p)
-stop
----------
-start
-for(i = 1(20\)1)
-{ 
-for(j = 1(20\)1)
-{ 
-block$ p = p * \frac{1}{i + j^{2}} $ 
-} 
+io(Запись в файл:
+"\\n")
 }
-io(вывод p)
+fn(Закрытие файла)
+}
+else(нет)
+{io(Вывод:
+"Невозможно 
+открыть файл: 
+filename)
+}
+stop
+
+start
+fn(открываем файл)
+if(файл открыт)
+then(да)
+{
+for(i = 0(1\)count)
+{
+fn(Считываем
+строку в line)
+fn(token = первая
+лексема строки)
+block(students[i].surname
+ = token)
+fn(token = вторая
+лексема строки)
+block(students[i].group = 
+число(token\))
+fn(token = третья
+лексема строки)
+block(students[i].average
+ = вещ.число(token\))
+fn(token = 
+четвёртая
+лексема строки)
+for(j = 0(1\)5)
+{
+if(token[j] == '*')
+then(да)
+{block(students[i].
+disciplines[j] 
+= true)}
+else(нет)
+{block(students[i].
+disciplines[j]
+ = false)}
+}
+}
+fn(Закрытие файла)
+}
+else(нет)
+{io(Вывод:
+"Невозможно 
+открыть файл: 
+filename)}
 stop

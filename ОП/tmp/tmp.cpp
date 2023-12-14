@@ -1,6 +1,6 @@
 #include <iostream>
 #include <iomanip>  // для setw()
-#include <curses.h> // для getchar()
+#include <curses> // для getchar()
 #include <fstream>
 #include <stdio.h>
 #include <stdlib.h>
