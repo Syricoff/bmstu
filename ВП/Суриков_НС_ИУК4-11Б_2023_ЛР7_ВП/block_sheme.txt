@@ -81,3 +81,235 @@ else(нет)
 открыть файл: 
 filename)}
 stop
+
+start
+for(i = 0(1\)count-1)
+{
+for(j = 0(1\)count-i-1)
+{
+if(students[j].
+average 
+< students[j+1].
+average)
+then()
+{
+block(temp = students[j]
+students[j] = 
+students[j+1]
+students[j+1] = temp)
+}
+}
+}
+stop
+
+start
+block(disciplineCount = 0)
+for(int i = 0(1\)count)
+{
+if(students[i].
+disciplines[discipline])
+then(да)
+{block(disciplineCount = 
+disciplineCount + 1)}
+}
+
+
+block(disciplineStudents
+[disciplineCount]
+j = 0)
+for(int i = 0(1\)count)
+{
+if(students[i].
+disciplines[discipline])
+then(да)
+{block(disciplineStudents[j] 
+= students[i]
+j = j + 1)}
+}
+
+pc(A
+06
+07)
+
+pc(A
+06
+07)
+
+if(disciplineCount > 10)
+then(да)
+{
+fn(sortStudentsByAverage(
+    disciplineStudents, 
+    disciplineCount\))
+fn(writeStudents(
+    disciplineStudents, 
+    10, filename\))
+}
+else(нет)
+{fn(writeStudents(
+    disciplineStudents, 
+    disciplineCount, 
+filename\))
+}
+    io(Вывод: 
+    "Данные записаны 
+    в файл: ", filename)
+stop
+
+start
+block(filename = 
+"res/students.txt")
+block(count = 20)
+fn(students = 
+generateRandom-
+Students(count\))
+fn(writeStudents(
+students, count, 
+filename\))
+fn(readStudents(
+readStudentsArray, 
+count, filename\))
+
+io(Вывод: 
+"Выберите дисциплину: ")
+io(Вывод: 
+"1. Математика")
+io(Вывод: 
+"2. Физика")
+
+pc(A
+07
+08)
+
+pc(A
+07
+08)
+
+io(Вывод: 
+"3. Химия")
+io(Вывод: 
+"4. Биология")
+io(Вывод: 
+"5. История")
+io(Вывод: 
+"Введите номер 
+предмета: ")
+io(Ввод: choice)
+
+io(Вывод: 
+"Введите путь 
+к файлу для 
+записи данных: ")
+io(Ввод: 
+disciplineOutFilename)
+
+if(MATH 
+<= choice - 1 <= 
+HISTORY)
+then(да)
+    {
+        fn(writeDiscipline-
+Students(students, 
+count, 
+disciplineOutFilename, 
+choice-1\))
+    }
+    else(нет)
+    {
+        io(Вывод: 
+"Введено 
+неверное значение")
+    }
+stop
+
+start
+fn(fсout1 = 
+открываем(file1\))
+fn(fсout2 = 
+открываем(file2\))
+if(fсout1 открыт 
+и fсout2 открыт)
+then(да)
+{
+block(lineNum = 1)
+
+connect(A)
+
+connect(A)
+
+while(есть строки в файлах){
+if(строки не равны)
+then(да)
+{
+io(Вывод: 
+"Файлы различаются 
+в строке ", lineNum)
+io(Вывод: 
+file1, ": ", line1)
+io(Вывод: 
+file2, ": ", line2)
+fn(return)            
+}
+block(lineNum = lineNum + 1)
+}
+if(не конец fсout1
+или не конец fсout2)
+then(да)
+{io(Вывод: 
+"Файлы имеют 
+разное число строк")}
+else(нет)
+{io(Вывод: 
+"Файлы идентичны")}
+
+connect(B)
+
+connect(B)
+
+}
+else(нет)
+{io(Вывод: 
+"Невозможно 
+открыть файл")}
+fn(закрываем файлы)
+stop
+
+start
+    io(Вывод: "Введите имя первого файла: ")
+    io(Ввод: file1)
+
+    io(Вывод: "Введите имя второго файла: ")
+    io(Ввод: file2)
+
+    fn(compareFiles(
+        file1, file2\))
+stop
+
+start
+io(Вывод: 
+"Меню:")
+io(Вывод: 
+"1. Задание 1")
+io(Вывод: 
+"2. Задание 2")
+io(Вывод: 
+"0. Выход")
+io(Вывод: 
+"Выберите 
+номер задания: ")
+stop
+
+start
+do_while(choice != 0){
+fn(printMenu(\))
+io(Ввод: choice)
+}
+switch(choice)
+case(1) { fn(task_1(\)) }
+case(2) { fn(task_2(\)) }
+case(0) { io(Вывод: 
+Выход из программы.) }
+case(default) { io(Вывод: 
+Некорректный выбор. 
+Попробуйте еще раз.) }
+stop

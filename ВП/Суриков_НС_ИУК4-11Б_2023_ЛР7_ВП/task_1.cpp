@@ -59,6 +59,7 @@ void writeStudents(Student students[], int count, const char *filename)
             file << endl;
         }
         file.close();
+        cout << "Данные записаны в файл: " << filename << endl;
     }
     else
     {
@@ -122,7 +123,7 @@ void sortStudentsByAverage(Student students[], int count)
     }
 }
 
-void writeDisciplineStudents(Student students[], int count, const char *filename, Discipline discipline)
+void writeDisciplineStudents(Student students[], int count, char *filename, Discipline discipline)
 {
     int disciplineCount = 0;
     for (int i = 0; i < count; i++)
@@ -153,17 +154,11 @@ void writeDisciplineStudents(Student students[], int count, const char *filename
     {
         writeStudents(disciplineStudents, disciplineCount, filename);
     }
-    cout << "Данные записаны в файл: " << filename << endl;
 }
 
 void task_1()
 {
     const char *filename = "res/students.txt";
-    const char *mathFilename = "res/math_students.txt";
-    const char *physicsFilename = "res/physics_students.txt";
-    const char *chemistryFilename = "res/chemistry_students.txt";
-    const char *biologyFilename = "res/biology_students.txt";
-    const char *historyFilename = "res/history_students.txt";
 
     int count{20};
 
@@ -205,25 +200,16 @@ void task_1()
     cout << "Введите номер предмета: ";
     cin >> choice;
 
-    switch ((Discipline)choice - 1)
+    char disciplineOutFilename[256];
+    cout << "Введите путь к файлу для записи данных: ";
+    cin >> disciplineOutFilename;
+
+    if (choice - 1 <= HISTORY && choice - 1 >= MATH)
     {
-    case MATH:
-        writeDisciplineStudents(readStudentsArray, count, mathFilename, MATH);
-        break;
-    case PHYSICS:
-        writeDisciplineStudents(readStudentsArray, count, physicsFilename, PHYSICS);
-        break;
-    case CHEMISTRY:
-        writeDisciplineStudents(readStudentsArray, count, chemistryFilename, CHEMISTRY);
-        break;
-    case BIOLOGY:
-        writeDisciplineStudents(readStudentsArray, count, biologyFilename, BIOLOGY);
-        break;
-    case HISTORY:
-        writeDisciplineStudents(readStudentsArray, count, historyFilename, HISTORY);
-        break;
-    default:
-        cout << "Некорректный выбор. Попробуйте еще раз." << endl;
-        break;
+        writeDisciplineStudents(students, count, disciplineOutFilename, (Discipline)(choice - 1));
+    }
+    else
+    {
+        cout << "Введено неверное значение" << endl;
     }
 }
