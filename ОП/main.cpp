@@ -4,7 +4,6 @@
 #include <iomanip> // для setw()
 #include <cstring>
 #include <limits> // для numeric_limits
-#include <locale> // для setlocale
 
 #include <stdio.h> // для getchar()
 #include <format>  // для format()
@@ -41,8 +40,7 @@ using namespace std;
 
 int main()
 {
-    locale current_locale("ru_RU.UTF-8");
-    locale::global(current_locale);
+    setlocale(LC_ALL, "Russian");
 
     int studentsNumber{0};
     Student *students = new Student[studentsNumber];
@@ -306,6 +304,7 @@ void deleteStudent(Student *&students, int &studentsNumber)
     cout << "\nУкажите номер студента, которого требуется удалить (0 - отмена операции): ";
 
     allowedValues_i = new int[studentsNumber + 1];
+
     for (int i = 0; i <= studentsNumber; i++)
         allowedValues_i[i] = i;
     int deleteStud = getInput(allowedValues_i, studentsNumber + 1);
@@ -380,13 +379,13 @@ void displaySortedStudentList(Student *students, int studentsNumber)
 
 void printStudentList(Student *students, int studentsNumber)
 {
-    cout << "-------------------------------------------------------------------------------------------------------------------------\n"
-         << format("| {:5} | {:20} | {:20} | {:20} | {:12} | {:4} | {:7} |\n", "№", "Фамилия", "Имя", "Отчество", "Год рождения", "Курс", "Оценки")
-         << "-------------------------------------------------------------------------------------------------------------------------\n";
+    cout << "--------------------------------------------------------------------------------------------------------------\n"
+         << format("| {:5} | {:20} | {:20} | {:20} | {:12} | {:4} | {:7} |\n", "#", "Surname", "Name", "Patronymic", "Birth Year", "Curs", "Marks")
+         << "--------------------------------------------------------------------------------------------------------------\n";
     for (int i = 0; i < studentsNumber; i++)
     {
         cout << format("| {:5} | {:20} | {:20} | {:20} | {:12} | {:4} | {:1}, {:1}, {:1} |\n", i + 1, students[i].surname, students[i].name, students[i].patronymic, students[i].birthYear, students[i].course, students[i].marks[0], students[i].marks[1], students[i].marks[2])
-             << "-------------------------------------------------------------------------------------------------------------------------\n";
+             << "--------------------------------------------------------------------------------------------------------------\n";
     }
 }
 
@@ -422,7 +421,7 @@ void displayStudentList(Student *students, int studentsNumber)
         printStudentList(students, studentsNumber);
         cout << "\nДля возврата в меню нажмите enter... ";
     }
-    getchar(); // ожидание нажатия клавиши
+    getchar();
 }
 
 void specifyFilePath(char *path, int binaryFile)
@@ -512,10 +511,11 @@ int importFromFile(Student *&students, int &studentsNumber, const char *path, in
         return -1;
     }
     file.close();
-    delete[] students;
 
+    delete[] students;
     students = tempStudents;
     studentsNumber = tempStudentsNumber;
+
     return 0;
 }
 

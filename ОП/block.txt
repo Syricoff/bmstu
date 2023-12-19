@@ -1,0 +1,72 @@
+start
+block(studentsNumber = 0)
+block(создание массива 
+students размером 
+studentsNumber)
+pc(A
+12
+13)
+
+
+pc(A
+12
+13)
+while(true){
+fn(clearDisplay(\))
+fn(printMenu(\))
+io(Ввод: opt)
+
+connect(A)
+
+connect(A)
+switch(opt)
+        case(1){
+fn(clearDisplay(\)
+addStudent(
+students,
+studentsNumber\))}
+        case(2){
+fn(clearDisplay(\)
+changeStudent(
+students, 
+studentsNumber\))}
+        case(3){
+fn(clearDisplay(\)
+deleteStudent(
+students, 
+studentsNumber\))}
+        case(4){
+fn(clearDisplay(\)
+displayStudentList(
+students, 
+studentsNumber\))}
+        case 5{
+fn(clearDisplay(\)
+displaySorted
+StudentList(
+students, 
+studentsNumber\))}
+        case(6){
+fn(clearDisplay(\)
+importStudentList(
+students, 
+studentsNumber\))}
+        case(7){
+fn(clearDisplay(\)
+exportStudentList(
+students, 
+studentsNumber\))}
+        case(8){
+fn(clearDisplay(\)
+transformStudent
+List(\))}
+        case(0){
+            fn(Выход 
+из программы)}
+        case(default){
+            io(Error: 
+case default in main)}
+connect(B)
+connect(B)
+    }
+stop
