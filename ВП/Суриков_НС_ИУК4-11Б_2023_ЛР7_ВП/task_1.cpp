@@ -78,7 +78,7 @@ void readStudents(Student students[], int count, const char *filename)
             file.getline(line, 256);
 
             char *token = strtok(line, " ");
-            strcpy(students[i].surname, token);
+            strlcpy(students[i].surname, token, sizeof(students[i].surname));
 
             token = strtok(nullptr, " ");
             students[i].group = atoi(token);
@@ -160,7 +160,7 @@ void task_1()
 {
     const char *filename = "res/students.txt";
 
-    int count{20};
+    const int count{20};
 
     // Student *students = generateRandomStudents(count);
     Student students[count] = {

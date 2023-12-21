@@ -1,0 +1,509 @@
+start
+io(Вывод: 
+"Введите номер 
+читательского 
+билета: ")
+
+pc(A
+02
+03)
+
+pc(A
+02
+03)
+
+io(Ввод: 
+record.
+readerTicketNumber)
+io(Вывод: 
+"Введите 
+автора: ")
+io(Ввод: 
+record.author)
+io(Вывод: 
+"Введите 
+название: ")
+io(Ввод: 
+record.title)
+io(Вывод: 
+"Введите
+дату заказа: ")
+io(Ввод: 
+record.orderDate)
+stop
+
+start
+fn(открываем file 
+как бинарный)
+if(file не открыт)
+then(да)
+{
+io(Вывод: 
+"Ошибка при 
+открытии файла:",
+ filename)
+fn(return)
+}
+block(Создаём массив 
+records размера 
+numRecords)
+
+fn(Читаем в records 
+содержимое file)
+
+block(Меняем местами 
+первую и 
+последнюю записи)
+
+fn(Записываем в 
+file 
+изменённый 
+records)
+fn(Закрываем файл)
+stop
+
+start
+fn(открываем file
+как бинарный)
+if(file не открыт)
+then(да)
+    {
+io(Вывод: 
+"Ошибка при 
+создании файла:",
+ filename)
+fn(return)
+}
+block(numRecords = 10)
+block(Создаём массив 
+records размера 
+numRecords)
+
+connect(A)
+
+connect(A)
+
+for(i = 0(1\)numRecords){
+io(Ввод: 
+"Введите запись №",
+ i + 1)
+fn(inputRecord(record\))
+block(records[i] = record)
+}
+fn(Записываем в 
+file records)
+fn(Закрываем файл)
+stop
+
+start
+fn(открываем file
+как бинарный)
+if(file не открыт)
+then(да)
+{
+io(Вывод: 
+"Ошибка при 
+отображении файла:",
+ filename)
+fn(return)
+}
+block(Создаём массив 
+records размера 
+numRecords)
+
+fn(Читаем в records 
+содержимое file)
+
+connect(A)
+
+connect(A)
+
+for(i = 0(1\)numRecords){
+io(Вывод: 
+"Запись № ", i + 1)
+io(Вывод: 
+"Номер чит.билета: ", 
+records[i].reader
+TicketNumber)
+io(Вывод: 
+"Автор: ",
+records[i].author)
+io(Вывод: 
+"Название: ", 
+records[i].title)
+io(Вывод: 
+"Дата заказа: ", 
+records[i].orderDate)
+    }
+fn(Закрываем файл)
+stop
+
+start
+fn(открываем file
+как бинарный)
+if(file не открыт)
+then(да)
+{
+io(Вывод: 
+"Ошибка при 
+открытии файла:",
+ filename)
+fn(return)
+}
+fn(inputRecord(record\))
+block(numRecords =
+numRecords + 1)
+block(Создаём массив 
+records размера 
+numRecords)
+fn(Читаем в records 
+содержимое file)
+
+pc(A
+06
+07)
+
+pc(A
+06
+07)
+
+if(addToBeginning)
+then(да)
+{
+fn(добавляем запись 
+в начало records)
+}
+else(нет)
+    {
+fn(добавляем запись 
+в конец records)
+    }
+fn(Записываем в 
+file records)
+fn(Закрываем файл)
+stop
+
+start
+io(Вывод: 
+"Меню Задания 1:")
+io(Вывод: 
+"1. Добавить 
+запись в начало")
+io(Вывод: 
+"2. Добавить 
+запись в конец")
+io(Вывод: 
+"3. Поменять местами 
+первую и 
+последнюю запись")
+io(Вывод: 
+"4. Показать 
+записи")
+io(Вывод: 
+"0. Назад 
+в меню")
+
+io(Вывод: 
+"Выбор: ")
+stop
+
+start
+block(filename = 
+"res/records.bin")
+block(numRecords = 0)
+fn(createFile(
+filename, 
+numRecords,
+false\))
+
+pc(A
+08
+09)
+
+pc(A
+08
+09)
+
+do_while(choice)
+{
+fn(printMenuTask1(\))
+
+io(Ввод: choice)
+
+switch(choice)
+case(1) { fn(addRecord(
+    filename, 
+    numRecords,
+true\)) }
+case(2) { fn(addRecord(
+    filename, 
+    numRecords,
+false\)) }
+case(3) { fn(swapFirst
+AndLastRecord(
+    filename,
+numRecords\)) }
+case(4) { fn(displayFile(
+    filename, 
+    numRecords\)) }
+case(0) { io(Вывод: 
+"Назад в меню") }
+case(default) { io(Вывод: 
+"Направильный ввод!") }
+}
+stop
+
+start
+fn(открываем textFile)
+fn(открываем 
+recordFile
+как бинарный)
+
+if(textFile 
+не открыт или 
+recordFile не
+открыт)
+then(да)
+{
+io(Вывод: 
+"Не удалось 
+открыть файл.")
+fn(return)
+}
+
+connect(A)
+
+connect(A)
+
+do_while(пока есть строки)
+{
+block(linePos = 
+позиция вывода 
+textFile)
+fn(запись в 
+recordFile 
+linePos)
+}
+
+fn(Закрываем 
+texrFile)
+fn(Закрываем
+recordFile)
+
+io(Вывод: 
+"Файл записей 
+создан.")
+stop
+
+
+start
+fn(открываем 
+recordFile
+как бинарный)
+
+if(recordFile
+ не открыт)
+then(да)
+{
+io(Вывод: 
+"Ошибка при 
+открытии файла
+записей")
+fn(return)
+}
+
+io(Вывод: 
+"Введите индексы 
+записей для 
+обмена: ")
+
+io(Ввод: 
+recordIndex1,
+recordIndex2)
+
+block(recordPos1 = 
+recordIndex1 * 
+размер записи)
+
+block(recordPos2 = 
+recordIndex2 * 
+размер записи)
+
+connect(A)
+
+connect(A)
+
+
+fn(Устанавливаем 
+позицию ввода 
+на recordPos1)
+fn(linePos1 = 
+запись 
+из recordFile)
+
+fn(Устанавливаем 
+позицию ввода 
+на recordPos2)
+fn(linePos2 = 
+запись 
+из recordFile)
+
+fn(Устанавливаем 
+позицию вывода 
+на recordPos1)
+
+connect(B)
+
+connect(B)
+
+fn(Записываем 
+linePos2
+в recordFile)
+
+fn(Устанавливаем 
+позицию вывода 
+на recordPos2)
+fn(Записываем 
+linePos1
+в recordFile)
+
+fn(Закрываем
+recordFile)
+
+
+io(Вывод: 
+"Записи поменяны 
+местами.")
+stop
+
+
+start
+fn(открываем 
+recordFile
+как бинарный)
+
+if(recordFile
+ не открыт)
+then(да)
+{
+io(Вывод: 
+"Ошибка при 
+открытии файла
+записей")
+fn(return)
+}
+while(linePos = 
+следующая 
+запись)
+{
+connect(A)
+
+connect(A)
+fn(открываем 
+textFile)
+if(textFile
+ не открыт)
+then(да)
+{
+io(Вывод: 
+"Ошибка при 
+открытии 
+текстового файла")
+fn(return)
+}
+
+fn(Устанавливаем 
+позицию ввода 
+на linePos)
+block(line = строка
+из textFile)
+io(Вывод: line)
+
+fn(Закрываем
+textFile)
+connect(B)
+
+connect(B)
+}
+
+fn(Закрываем
+recordFile)
+stop
+
+
+start
+io(Вывод: 
+"Меню:")
+io(Вывод: 
+"1. Создать 
+файл записей")
+io(Вывод: 
+"2. Вывести 
+файл записей")
+io(Вывод: 
+"3. Обменять 
+записи местами")
+io(Вывод: 
+"0. Назад 
+в меню")
+io(Вывод: 
+"Введите 
+выбор: ")
+stop
+
+
+start
+block(textFilePath = 
+"res/file.txt")
+block(recordFilePath = 
+"res/file.bin")
+do_while(choice)
+{
+fn(printMenuTask2(\))
+io(Ввод: choice)
+switch(choice)
+        
+case(1){fn(createRecordFile(
+    textFilePath, 
+    recordFilePath\))}
+case(2){fn(printRecordFile(
+    recordFilePath\))}
+case(3){fn(swapRecords(
+    recordFilePath\))}
+case(0){io(Вывод: 
+"Назад 
+в меню")}
+case(default){io(Вывод: 
+"Неверный выбор. 
+Попробуйте снова.")}
+}
+stop
+
+start
+io(Вывод: 
+"Меню:")
+io(Вывод: 
+"1. Задание 1")
+io(Вывод: 
+"2. Задание 2")
+io(Вывод: 
+"0. Выход")
+io(Вывод: 
+"Выберите 
+номер задания: ")
+stop
+
+start
+do_while(choice != 0){
+fn(printMenu(\))
+io(Ввод: choice)
+}
+switch(choice)
+case(1) { fn(task_1(\)) }
+case(2) { fn(task_2(\)) }
+case(0) { io(Вывод: 
+Выход из программы.) }
+case(default) { io(Вывод: 
+Некорректный выбор. 
+Попробуйте еще раз.) }
+stop
