@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Добавить посещение</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1 class="mt-4">Добавить посещение</h1>
+        <form action="/add_attendance" method="post">
+            <div class="form-group">
+                <label for="student_id">Выберите студента:</label>
+                <select id="student_id" name="student_id" class="form-control">
+                    {% for student in students %}
+                    <option value="{{ student.id }}">{{ student.name }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="schedule_date">Выберите дату занятия:</label>
+                <input type="date" id="schedule_date" name="schedule_date" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="subject">Выберите предмет:</label>
+                <select id="subject" name="subject" class="form-control">
+                    {% for subject in subjects %}
+                    <option value="{{ subject.id }}">{{ subject.name }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="attendance">Посещение (1 - посетил, 0 - пропустил):</label>
+                <input type="text" id="attendance" name="attendance" class="form-control">
+            </div>
+            <button type="submit" class="btn btn-primary">Отправить</button>
+        </form>
+    </div>
+</body>
+</html>
