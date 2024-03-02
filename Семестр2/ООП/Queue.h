@@ -5,19 +5,21 @@
 
 class Queue
 {
-public:
-	Queue();
-	~Queue();
+  public:
+    Queue();
+    ~Queue();
 
-	void pushFrame();
-	Frame* popFrame();
-	Frame* peekFrame();
-	void display();
-	bool isEmpty();
+    void pushFrame();
+    Frame *popFrame();
+    Frame *peekFrame();
+    void display();
+    bool isEmpty();
+    void deleteFrame();
+    void addAfter();
 
-private:
-	Frame* firstFrame;
-	Frame* lastFrame;
+  private:
+    Frame *firstFrame;
+    Frame *lastFrame;
 };
 
 #endif // !QUEUE
