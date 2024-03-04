@@ -1,16 +1,12 @@
-#include "menu/CMenu.h"
-#include "menu/CMenuItem.h"
+#include "models/CMenu/CMenu.h"
+#include "models/CMenuItem/CMenuItem.h"
+#include "models/Car/Car.h"
+#include "models/Client/Client.h"
+#include "models/Employee/Employee.h"
 
 using namespace std;
 
 #pragma region функции-заглушки
-
-int exit()
-{
-    std::cout << "Exit is running...\n\n";
-    exit(0);
-    return -1;
-}
 
 int hello()
 {
@@ -43,25 +39,53 @@ int squareOf5()
 
     return 2;
 }
+
+int testCar()
+{
+    using namespace SNS;
+    Car car("Toyota", 25000.0, 2022, "Sedan", "Bluetooth, Backup Camera");
+    car.displayInfo();
+    return 1;
+}
+
+int testEmployee(){
+    using namespace SNS;
+    Employee employee("John", "Doe", 25, "johndoe", "12345", "Manager");
+    employee.displayPublicInfo();
+    employee.displayPrivateInfo();
+    return 1;
+}
+
+int testClient(){
+    using namespace SNS;
+    Client client("John", "Doe", 25, "johndoe", "12345", "Service");
+    client.displayPublicInfo();
+    client.displayPrivateInfo();
+    return 1;
+}
 #pragma endregion
 
-const int ITEMS_NUMBER = 4;
+const int ITEMS_NUMBER = 6;
 
 int main()
 {
     using namespace SNS;
 
-    CMenuItem items[ITEMS_NUMBER]{CMenuItem{"Выход", exit},
-                                  CMenuItem{"Смайлик)", smileFace},
-                                  CMenuItem("Квадрат 5", squareOf5),
-                                  CMenuItem("Привет мир", hello)};
+    CMenuItem items[ITEMS_NUMBER]{
+        CMenuItem{"Смайлик)", smileFace},
+        CMenuItem("Квадрат 5", squareOf5),
+        CMenuItem("Привет мир", hello),
+        CMenuItem("Тест машины", testCar),
+        CMenuItem("Тест сотрудника", testEmployee),
+        CMenuItem("Тест клиента", testClient)};
 
     CMenu menu("Главное меню", items, ITEMS_NUMBER);
-    while (menu.runCommand())
+    while (menu.isRun())
     {
+        menu.runCommand();
     };
 
     return 0;
 }
 
-// g++ main.cpp ./menu/CMenu.cpp ./menu/CMenuItem.cpp && ./a.out
+// g++ main.cpp ./models/CMenu/CMenu.cpp ./models/CMenuItem/CMenuItem.cpp ./models/Car/Car.cpp ./models/User/User.cpp ./models/Client/Client.cpp ./models/Employee/Employee.cpp && ./a.out

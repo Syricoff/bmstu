@@ -1,6 +1,6 @@
 #pragma once
 
-#include "./CMenuItem.h"
+#include "../CMenuItem/CMenuItem.h"
 #include <cstddef>
 
 namespace SNS
@@ -20,7 +20,7 @@ namespace SNS
     private:
         int select{-1};
         size_t count{};
-        bool running{};
+        bool running{true};
         std::string title{};
         CMenuItem *items{};
     };
