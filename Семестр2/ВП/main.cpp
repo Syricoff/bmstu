@@ -4,29 +4,21 @@
 using namespace std;
 
 #pragma region функции-заглушки
-int f1()
-{
-    std::cout << "function f1 is running...\n\n";
-    return 1;
-}
-
-int f2()
-{
-    std::cout << "function f2 is running...\n\n";
-    return 2;
-}
-
-int f3()
-{
-    std::cout << "function f3 is running...\n\n";
-    return 3;
-}
 
 int exit()
 {
     std::cout << "Exit is running...\n\n";
     exit(0);
     return -1;
+}
+
+int hello()
+{
+    std::cout << std::endl;
+    std::cout << "Hello world!" << std::endl;
+    std::cout << std::endl;
+
+    return 3;
 }
 
 int smileFace()
@@ -43,21 +35,28 @@ int smileFace()
     return 1;
 }
 
-int squareOf()
+int squareOf5()
 {
+    std::cout << std::endl;
     std::cout << "Square: " << 5 * 5 << std::endl;
-    return 1;
+    std::cout << std::endl;
+
+    return 2;
 }
 #pragma endregion
 
-const int ITEMS_NUMBER = 6;
+const int ITEMS_NUMBER = 4;
 
 int main()
 {
-    CMenuItem items[ITEMS_NUMBER]{CMenuItem{"first item", f1},   CMenuItem{"second item", f2},
-                                  CMenuItem{"third item", f3},   CMenuItem{"Smile Face", smileFace},
-                                  CMenuItem("Square", squareOf), CMenuItem{"Exit", exit}};
-    CMenu menu("My console menu", items, ITEMS_NUMBER);
+    using namespace SNS;
+
+    CMenuItem items[ITEMS_NUMBER]{CMenuItem{"Выход", exit},
+                                  CMenuItem{"Смайлик)", smileFace},
+                                  CMenuItem("Квадрат 5", squareOf5),
+                                  CMenuItem("Привет мир", hello)};
+
+    CMenu menu("Главное меню", items, ITEMS_NUMBER);
     while (menu.runCommand())
     {
     };

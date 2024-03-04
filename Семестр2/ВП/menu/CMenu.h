@@ -1,18 +1,17 @@
 #pragma once
 
-#include <cstddef>
-#include <string>
 #include "./CMenuItem.h"
+#include <cstddef>
 
-using namespace std;
-
-
-class CMenu {
+namespace SNS
+{
+    class CMenu
+    {
     public:
-        CMenu(string, CMenuItem *, size_t);
+        CMenu(std::string, CMenuItem *, std::size_t);
         int getSelect() const;
         bool isRun() const;
-        string getTitle();
+        std::string getTitle();
         size_t getCount() const;
         CMenuItem *getItems();
         void print();
@@ -22,6 +21,7 @@ class CMenu {
         int select{-1};
         size_t count{};
         bool running{};
-        string title{};
+        std::string title{};
         CMenuItem *items{};
-};
+    };
+} // namespace SNS
