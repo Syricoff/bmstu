@@ -635,3 +635,5 @@ pyrightconfig.json
 Семестр2/ВП/.tmp/hlp/school_system/consoleUtils/CMakeLists.txt
 Семестр2/ВП/.tmp/hlp/school_system/consoleUtils/consoleUtils.cpp
 Семестр2/ВП/.tmp/hlp/school_system/consoleUtils/consoleUtils.h
+
+.fake

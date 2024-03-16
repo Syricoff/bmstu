@@ -56,5 +56,6 @@
         "typeinfo": "cpp",
         "variant": "cpp"
     },
-    "cmake.sourceDirectory": "/home/syricoff/bmstu/Семестр2/ВП/dealership"
+    "cmake.sourceDirectory": "/home/syricoff/bmstu/Семестр2/ВП/dealership",
+    "dotnet.defaultSolution": "ПР1.sln"
 }

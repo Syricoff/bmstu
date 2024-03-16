@@ -1,0 +1,33 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Семестр2", "Семестр2", "{4CA6C1CB-CAB5-4019-90AB-D8C29D2523A8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ООП", "ООП", "{03F4F8C5-701D-4F40-91FD-18C672DC9BEC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ПР1", "ПР1", "{B9923B16-7D9D-4CC6-B906-3566B8D078AA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ПР1", "Семестр2\ООП\ПР1\ПР1\ПР1.csproj", "{7F56A15F-BB0A-40B1-BB59-EFC454BD063F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7F56A15F-BB0A-40B1-BB59-EFC454BD063F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7F56A15F-BB0A-40B1-BB59-EFC454BD063F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7F56A15F-BB0A-40B1-BB59-EFC454BD063F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7F56A15F-BB0A-40B1-BB59-EFC454BD063F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{03F4F8C5-701D-4F40-91FD-18C672DC9BEC} = {4CA6C1CB-CAB5-4019-90AB-D8C29D2523A8}
+		{B9923B16-7D9D-4CC6-B906-3566B8D078AA} = {03F4F8C5-701D-4F40-91FD-18C672DC9BEC}
+		{7F56A15F-BB0A-40B1-BB59-EFC454BD063F} = {B9923B16-7D9D-4CC6-B906-3566B8D078AA}
+	EndGlobalSection
+EndGlobal

@@ -44,6 +44,30 @@
                 "isDefault": true
             },
             "detail": "Задача создана отладчиком."
+        },
+        {
+            "type": "dotnet",
+            "task": "build",
+            "group": "build",
+            "problemMatcher": [],
+            "label": "dotnet: build"
+        },
+        {
+            "type": "dotnet",
+            "task": "build /home/syricoff/bmstu/Семестр2/ООП/ПР1/ПР1/ПР1.csproj",
+            "file": "/home/syricoff/bmstu/Семестр2/ООП/ПР1/ПР1/ПР1.csproj",
+            "group": "build",
+            "problemMatcher": [],
+            "label": "dotnet: build /home/syricoff/bmstu/Семестр2/ООП/ПР1/ПР1/ПР1.csproj"
+        },
+        {
+            "type": "msbuild",
+            "problemMatcher": [
+                "$msCompile"
+            ],
+            "group": "build",
+            "label": "Build: ПР1.csproj",
+            "detail": "Build the ПР1.csproj project using dotnet build"
         }
     ]
 }
