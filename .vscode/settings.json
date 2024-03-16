@@ -55,5 +55,6 @@
         "streambuf": "cpp",
         "typeinfo": "cpp",
         "variant": "cpp"
-    }
+    },
+    "cmake.sourceDirectory": "/home/syricoff/bmstu/Семестр2/ВП/dealership"
 }
