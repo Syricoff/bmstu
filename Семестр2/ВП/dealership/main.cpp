@@ -1,90 +1,77 @@
-#include "models/CMenu/CMenu.h"
-#include "models/CMenuItem/CMenuItem.h"
-#include "models/Car/Car.h"
-#include "models/Client/Client.h"
-#include "models/Employee/Employee.h"
+#include "Menu/CMenu/CMenu.h"
+#include "Menu/CMenuItem/CMenuItem.h"
+#include "Models/Car/Car.h"
+#include "Models/Client/Client.h"
+#include "Models/Employee/Employee.h"
 
 using namespace std;
 
 #pragma region функции-заглушки
 
-int hello()
-{
-    std::cout << std::endl;
-    std::cout << "Hello world!" << std::endl;
-    std::cout << std::endl;
-
-    return 3;
-}
-
-int smileFace()
-{
-    std::cout << std::endl;
-    std::cout << "  *****  " << std::endl;
-    std::cout << " *     * " << std::endl;
-    std::cout << "*  o o  *" << std::endl;
-    std::cout << "*   v   *" << std::endl;
-    std::cout << " *     * " << std::endl;
-    std::cout << "  *****  " << std::endl;
-    std::cout << std::endl;
-
-    return 1;
-}
-
-int squareOf5()
-{
-    std::cout << std::endl;
-    std::cout << "Square: " << 5 * 5 << std::endl;
-    std::cout << std::endl;
-
-    return 2;
-}
-
-int testCar()
+int testCar(int index)
 {
     using namespace SNS;
     Car car("Toyota", 25000.0, 2022, "Sedan", "Bluetooth, Backup Camera");
     car.displayInfo();
-    return 1;
+    return index;
 }
 
-int testEmployee(){
+int testEmployee(int index)
+{
     using namespace SNS;
     Employee employee("John", "Doe", 25, "johndoe", "12345", "Manager");
     employee.displayPublicInfo();
     employee.displayPrivateInfo();
-    return 1;
+    return index;
 }
 
-int testClient(){
+int testClient(int index)
+{
     using namespace SNS;
     Client client("John", "Doe", 25, "johndoe", "12345", "Service");
     client.displayPublicInfo();
     client.displayPrivateInfo();
-    return 1;
+    return index;
 }
 #pragma endregion
 
-const int ITEMS_NUMBER = 6;
-
+void renderMain()
+{
+    system("clear");
+    cout << "Добро пожаловать в главное меню\n"
+         << "============================================\n\n"
+         << endl;
+}
+namespace SNS
+{
+    CMenu *createMainMenu()
+    {
+        CMenu *menu = new CMenu("Главное меню",
+                                ItemList{
+                                    CMenuItem("Тест машины", testCar),
+                                    CMenuItem("Тест сотрудника", testEmployee),
+                                    CMenuItem("Тест клиента", testClient)});
+        return menu;
+    }
+}
 int main()
 {
     using namespace SNS;
 
-    CMenuItem items[ITEMS_NUMBER]{
-        CMenuItem{"Смайлик)", smileFace},
-        CMenuItem("Квадрат 5", squareOf5),
-        CMenuItem("Привет мир", hello),
-        CMenuItem("Тест машины", testCar),
-        CMenuItem("Тест сотрудника", testEmployee),
-        CMenuItem("Тест клиента", testClient)};
+    renderMain();
+    CMenu &menu = *createMainMenu();
 
-    CMenu menu("Главное меню", items, ITEMS_NUMBER);
-    while (menu.isRun())
-    {
-        menu.runCommand();
-    };
+    // выводим меню
+    cout << menu;
 
+    // ожидаем ввод от пользователя
+    cin >> menu;
+
+    // запускаем заданную функцию
+    menu();
+
+    // удаляем меню
+    delete &menu;
     return 0;
 }
 

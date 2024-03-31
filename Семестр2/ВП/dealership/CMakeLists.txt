@@ -3,10 +3,15 @@ project(Dealership)
 
 set(CMAKE_CXX_STANDARD 20)
 
-include_directories(models)
+include_directories(Models)
+include_directories(Menu)
+include_directories(Tools)
 
-add_subdirectory(models)
+add_subdirectory(Models)
+add_subdirectory(Menu)
+add_subdirectory(Tools)
+
 
 add_executable(${PROJECT_NAME} main.cpp)
 
-target_link_libraries(Dealership models)
+target_link_libraries(Dealership Models Menu Tools)

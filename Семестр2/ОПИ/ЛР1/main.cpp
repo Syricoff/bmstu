@@ -4,7 +4,6 @@
 const int MATRIX_SIZE = 17;
 
 int matrix[MATRIX_SIZE][MATRIX_SIZE];
-int numberOfRow = 0;
 bool tempOfNegative, flag = true;
 
 void generateRandomMatrix()
@@ -53,6 +52,7 @@ bool isNegative(int number)
 
 void checkRowForAlternatingSigns()
 {
+    int numberOfRow{};
     std::cin >> numberOfRow;
     for (int j = 1; j < MATRIX_SIZE; j++)
     {
@@ -89,8 +89,10 @@ void findFirstZeroElement()
 int main()
 {
     generateRandomMatrix();
+    printMatrix();
     modifyMatrix();
     checkRowForAlternatingSigns();
     findFirstZeroElement();
+    printMatrix();
     return 0;
 }
