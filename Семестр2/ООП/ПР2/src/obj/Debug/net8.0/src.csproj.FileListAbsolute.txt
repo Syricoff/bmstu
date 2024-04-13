@@ -1,0 +1,15 @@
+/home/syricoff/bmstu/Семестр2/ООП/ПР2/src/bin/Debug/net8.0/src
+/home/syricoff/bmstu/Семестр2/ООП/ПР2/src/bin/Debug/net8.0/src.deps.json
+/home/syricoff/bmstu/Семестр2/ООП/ПР2/src/bin/Debug/net8.0/src.runtimeconfig.json
+/home/syricoff/bmstu/Семестр2/ООП/ПР2/src/bin/Debug/net8.0/src.dll
+/home/syricoff/bmstu/Семестр2/ООП/ПР2/src/bin/Debug/net8.0/src.pdb
+/home/syricoff/bmstu/Семестр2/ООП/ПР2/src/obj/Debug/net8.0/src.GeneratedMSBuildEditorConfig.editorconfig
+/home/syricoff/bmstu/Семестр2/ООП/ПР2/src/obj/Debug/net8.0/src.AssemblyInfoInputs.cache
+/home/syricoff/bmstu/Семестр2/ООП/ПР2/src/obj/Debug/net8.0/src.AssemblyInfo.cs
+/home/syricoff/bmstu/Семестр2/ООП/ПР2/src/obj/Debug/net8.0/src.csproj.CoreCompileInputs.cache
+/home/syricoff/bmstu/Семестр2/ООП/ПР2/src/obj/Debug/net8.0/src.sourcelink.json
+/home/syricoff/bmstu/Семестр2/ООП/ПР2/src/obj/Debug/net8.0/src.dll
+/home/syricoff/bmstu/Семестр2/ООП/ПР2/src/obj/Debug/net8.0/refint/src.dll
+/home/syricoff/bmstu/Семестр2/ООП/ПР2/src/obj/Debug/net8.0/src.pdb
+/home/syricoff/bmstu/Семестр2/ООП/ПР2/src/obj/Debug/net8.0/src.genruntimeconfig.cache
+/home/syricoff/bmstu/Семестр2/ООП/ПР2/src/obj/Debug/net8.0/ref/src.dll
