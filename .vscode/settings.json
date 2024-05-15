@@ -1,5 +1,6 @@
 {
     "files.associations": {
+        ".fantomasignore": "ignore",
         "*.cpp": "cpp",
         "iosfwd": "cpp",
         "array": "cpp",
@@ -54,7 +55,8 @@
         "stdexcept": "cpp",
         "streambuf": "cpp",
         "typeinfo": "cpp",
-        "variant": "cpp"
+        "variant": "cpp",
+        "chrono": "cpp"
     },
     "cmake.sourceDirectory": "/home/syricoff/bmstu/Семестр2/ВП/dealership",
     "dotnet.defaultSolution": "ПР1.sln"

@@ -2,6 +2,11 @@
 
 #include <string>
 #include <iostream>
+#include <vector>
+
+using std::cout;
+using std::string;
+using std::cin;
 
 namespace SNS
 {
@@ -15,7 +20,10 @@ namespace SNS
         std::string features;
 
     public:
+        Car();
         Car(const std::string, double, int, const std::string, const std::string);
+
+        using CarsList = std::vector<Car *>;
 
         void displayInfo();
 
@@ -33,5 +41,8 @@ namespace SNS
 
         bool operator>(const Car &car) const;
         bool operator<(const Car &car) const;
+
+        friend std::ostream &operator<<(std::ostream &out, const Car &car);
+        friend std::istream &operator>>(std::istream &in, Car &car);
     };
 } // namespace SNS

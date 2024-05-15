@@ -2,37 +2,64 @@
 
 void DataBase::loadRecords()
 {
-    std::fstream file(filePath, std::ios::in | std::ios::binary);
+    std::ifstream file(filePath);
     if (file.is_open())
     {
-        while (!file.eof())
+        string line;
+        std::getline(file, line); // Skip the header row
+
+        records.clear();
+
+        while (getline(file, line))
         {
-            HotelRoom room(0, "", 0.0, "", "", 0, 0.0, ""); // Создаем временный объект для чтения данных
-            file >> room;
-            if (!file.eof()) // Проверяем не достигли ли конца файла
+            stringstream ss(line);
+            string field;
+            vector<string> fields;
+
+            while (getline(ss, field, ';'))
             {
+                fields.push_back(field);
+            }
+
+            if (fields.size() == 8)
+            {
+                int id = stoi(fields[0]);
+                string roomType = fields[1];
+                double pricePerNight = stod(fields[2]);
+                string checkInDate = fields[3];
+                string checkOutDate = fields[4];
+                unsigned int numGuests = stoi(fields[5]);
+                double totalCost = stod(fields[6]);
+                string notes = fields[7];
+
+                HotelRoom room(id, roomType, pricePerNight, checkInDate, checkOutDate, numGuests, totalCost, notes);
                 records.push_back(room);
             }
         }
+
         file.close();
+    }
+    else
+    {
+        std::cerr << "Error opening file: " << filePath << std::endl;
     }
 }
 
 void DataBase::saveRecords()
 {
-    std::fstream file(filePath, std::ios::out | std::ios::binary);
-    if (!file.is_open())
-    {
-        std::cerr << "Error opening file!" << std::endl;
-        return;
-    }
+    std::ofstream file(filePath);
+    if (file.is_open()) {
+        
+        file << "id;тип номера;цена за ночь;дата заезда;дата выезда;количество гостей;общая стоимость;примечания" << std::endl;
 
-    for (const auto &room : records)
-    {
-        file << room << "\n";
+        for (const HotelRoom& room : records) {
+            file << room << std::endl;
+        }
+
+        file.close();
+    } else {
+        std::cerr << "Error opening file: " << filePath << std::endl;
     }
-    cout << "Good" << std::endl;
-    file.close();
 }
 
 List DataBase::getRecords() const { return records; }
@@ -40,7 +67,7 @@ List DataBase::getRecords() const { return records; }
 void DataBase::addRecord(const HotelRoom &room)
 {
     records.push_back(room);
-    // saveRecords();
+    saveRecords();
 }
 
 void DataBase::deleteRecord(int id)
@@ -53,6 +80,7 @@ void DataBase::deleteRecord(int id)
             break;
         }
     }
+    saveRecords();
 }
 
 void DataBase::editRecord(int id, const HotelRoom &newRoom)
@@ -65,9 +93,11 @@ void DataBase::editRecord(int id, const HotelRoom &newRoom)
             break;
         }
     }
+    saveRecords();
 }
 
-DataBase::~DataBase(){
+DataBase::~DataBase()
+{
     saveRecords();
     records.clear();
 }

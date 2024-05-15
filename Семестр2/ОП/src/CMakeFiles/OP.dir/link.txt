@@ -1,0 +1,1 @@
+/usr/lib64/ccache/c++ CMakeFiles/OP.dir/main.cpp.o -o OP  App/libApp.a Menu/libMenu.a Models/libModels.a Tools/libTools.a 

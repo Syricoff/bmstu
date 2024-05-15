@@ -6,12 +6,14 @@ set(CMAKE_CXX_STANDARD 20)
 include_directories(Models)
 include_directories(Menu)
 include_directories(Tools)
+include_directories(Storage)
 
 add_subdirectory(Models)
 add_subdirectory(Menu)
 add_subdirectory(Tools)
+add_subdirectory(Storage)
 
 
 add_executable(${PROJECT_NAME} main.cpp)
 
-target_link_libraries(Dealership Models Menu Tools)
+target_link_libraries(Dealership Models Menu Tools Storage)

@@ -1,0 +1,2 @@
+/usr/bin/ar qc libModels.a CMakeFiles/Models.dir/DataBase.cpp.o CMakeFiles/Models.dir/HotelRoom.cpp.o
+/usr/bin/ranlib libModels.a

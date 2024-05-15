@@ -2,6 +2,7 @@
 
 namespace SNS
 {
+    Car::Car(){};
     Car::Car(const std::string brand, double price, int year, const std::string description, const std::string features)
         : brand(brand), price(price), year(year), description(description), features(features)
     {
@@ -73,6 +74,32 @@ namespace SNS
     bool Car::operator>(const Car &other) const{
         return year > other.year;
     }
+
+    std::ostream &operator<<(std::ostream &out, const Car &car)
+    {
+        out << "Brand: " << car.brand << std::endl;
+        out << "Price: " << car.price << std::endl;
+        out << "Year: " << car.year << std::endl;
+        out << "Description: " << car.description << std::endl;
+        out << "Features: " << car.features << std::endl;
+        return out;
+    }
+
+    std::istream &operator>>(std::istream &in, Car &car)
+    {
+        cout << "Enter brand: ";
+        in >> car.brand;
+        cout << "Enter price: ";
+        in >> car.price;
+        cout << "Enter year: ";
+        in >> car.year;
+        cout << "Enter description: ";
+        in >> car.description;
+        cout << "Enter features: ";
+        in >> car.features;
+        return in;
+    }
+    
 
 }
 

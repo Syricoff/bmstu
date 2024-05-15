@@ -60,25 +60,44 @@ void HotelRoom::setNotes(const string &notes) {
 
 std::istream &operator>>(std::istream& is, HotelRoom& room)
 {
-    int id;
+    int id, numGuests;
     std::string roomType, checkInDate, checkOutDate, notes;
     double pricePerNight, totalCost;
-    unsigned int numGuests;
 
-    is >> id >> roomType >> pricePerNight >> checkInDate >> checkOutDate >> numGuests >> totalCost >> notes;
-    room = HotelRoom(id, roomType, pricePerNight, checkInDate, checkOutDate, numGuests, totalCost, notes);
+    // Запрос информации у пользователя
+    std::cout << "Введите ID: ";
+    std::cin >> id;
+    std::cout << "Введите тип номера: ";
+    std::cin >> roomType;
+    std::cout << "Введите цену за ночь: ";
+    std::cin >> pricePerNight;
+    std::cout << "Введите дату заезда: ";
+    std::cin >> checkInDate;
+    std::cout << "Введите дату выезда: ";
+    std::cin >> checkOutDate;
+    std::cout << "Введите количество гостей: ";
+    std::cin >> numGuests;
+    std::cout << "Введите конечную стоймость: ";
+    std::cin >> totalCost;
+    std::cout << "Введите пожелания: ";
+    std::cin.ignore(); // Очистка буфера ввода
+    std::getline(std::cin, notes);
+
+    // Создание новой записи
+    HotelRoom newRecord(id, roomType, pricePerNight, checkInDate, checkOutDate, numGuests, totalCost, notes);
+    room = newRecord;
     return is;
 }
 
 std::ostream &operator<<(std::ostream &os, const HotelRoom &room) {
-    os << room.m_uniqueId << " "
-       << room.m_roomType << " "
-       << room.m_pricePerNight << " "
-       << room.m_checkInDate << " "
-       << room.m_checkOutDate << " "
-       << room.m_numGuests << " "
-       << room.m_totalCost << " "
-       << room.m_notes << " ";
+    os << room.m_uniqueId << ";"
+       << room.m_roomType << ";"
+       << room.m_pricePerNight << ";"
+       << room.m_checkInDate << ";"
+       << room.m_checkOutDate << ";"
+       << room.m_numGuests << ";"
+       << room.m_totalCost << ";"
+       << room.m_notes << ";";
     return os;
 }
 

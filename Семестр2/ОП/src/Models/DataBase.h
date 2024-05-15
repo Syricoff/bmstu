@@ -5,6 +5,12 @@
 #include <string>
 #include <vector>
 #include <fstream>
+#include <iostream>
+#include <sstream>
+
+using std::string;
+using std::vector;
+using std::stringstream;
 
 using List = std::vector<HotelRoom>;
 

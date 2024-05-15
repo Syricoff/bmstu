@@ -1,0 +1,15 @@
+/home/syricoff/bmstu/Семестр2/ОП/src/CMakeFiles/OP.dir
+/home/syricoff/bmstu/Семестр2/ОП/src/CMakeFiles/edit_cache.dir
+/home/syricoff/bmstu/Семестр2/ОП/src/CMakeFiles/rebuild_cache.dir
+/home/syricoff/bmstu/Семестр2/ОП/src/Models/CMakeFiles/Models.dir
+/home/syricoff/bmstu/Семестр2/ОП/src/Models/CMakeFiles/edit_cache.dir
+/home/syricoff/bmstu/Семестр2/ОП/src/Models/CMakeFiles/rebuild_cache.dir
+/home/syricoff/bmstu/Семестр2/ОП/src/Menu/CMakeFiles/Menu.dir
+/home/syricoff/bmstu/Семестр2/ОП/src/Menu/CMakeFiles/edit_cache.dir
+/home/syricoff/bmstu/Семестр2/ОП/src/Menu/CMakeFiles/rebuild_cache.dir
+/home/syricoff/bmstu/Семестр2/ОП/src/App/CMakeFiles/App.dir
+/home/syricoff/bmstu/Семестр2/ОП/src/App/CMakeFiles/edit_cache.dir
+/home/syricoff/bmstu/Семестр2/ОП/src/App/CMakeFiles/rebuild_cache.dir
+/home/syricoff/bmstu/Семестр2/ОП/src/Tools/CMakeFiles/Tools.dir
+/home/syricoff/bmstu/Семестр2/ОП/src/Tools/CMakeFiles/edit_cache.dir
+/home/syricoff/bmstu/Семестр2/ОП/src/Tools/CMakeFiles/rebuild_cache.dir

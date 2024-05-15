@@ -7,6 +7,9 @@
 
 #include <algorithm>
 #include <iostream>
+#include <string>
+#include <vector>
+
 
 using std::cin;
 using std::cout;
@@ -16,7 +19,7 @@ using std::string;
 class App
 {
 private:
-    DataBase &db = DataBase::getInstance("./db.bin");
+    DataBase &db = DataBase::getInstance("./db.csv");
     bool m_is_running{true};
     App(){};
 
@@ -27,9 +30,12 @@ public:
     static App &createApp();
 
     CMenu *createMainMenu();
+    CMenu *createSearchMenu();
+
     // Методы для сортировки, поиска и вывода данных на экран
     void sortedData();
     void searchData();
+    void displayData(List &tempData);
     void displayData();
     void addRecord();
     void deleteRecord();

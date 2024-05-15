@@ -11,19 +11,80 @@ void App::sortedData()
     List temData = db.getRecords();
     std::sort(temData.begin(), temData.end(), [](const HotelRoom &a, const HotelRoom &b)
               { return a.getRoomType() < b.getRoomType(); });
+    displayData(temData);
+}
+
+
+List searchRooms(const vector<HotelRoom> &rooms, const string &searchTerm)
+{
+    vector<std::pair<HotelRoom, int>> results;
+
+    std::string lowerSearchTerm = searchTerm;
+    std::transform(lowerSearchTerm.begin(), lowerSearchTerm.end(), lowerSearchTerm.begin(), ::tolower);
+
+    for (const HotelRoom &room : rooms)
+    {
+        int matchCount = 0;
+
+        if (room.getCheckInDate().find(lowerSearchTerm) != std::string::npos) {
+            matchCount++;
+        }
+
+        if (room.getCheckOutDate().find(lowerSearchTerm) != std::string::npos) {
+            matchCount++;
+        }
+
+        if (room.getNotes().find(lowerSearchTerm) != std::string::npos) {
+            matchCount++;
+        }
+
+        if (room.getRoomType().find(lowerSearchTerm) != std::string::npos) {
+            matchCount++;
+        }
+
+        if (matchCount > 0) {
+            results.push_back(std::make_pair(room, matchCount));
+        }
+    }
+
+    // Сортировка результатов по наибольшему совпадению
+    std::sort(results.begin(), results.end(), [](const std::pair<HotelRoom, int> &a, const std::pair<HotelRoom, int> &b) {
+        return a.second > b.second;
+    });
+
+    List finalResults;
+    for (const std::pair<HotelRoom, int> &result : results) {
+        finalResults.push_back(result.first);
+    }
+
+
+    return finalResults;
 }
 
 void App::searchData()
 {
-    cout << endl;
+    string searchTerm;
+    cout << "Введите поисковый запрос: ";
+    cin.ignore();
+    getline(cin, searchTerm);
+
+    List rooms = db.getRecords();
+    List results = searchRooms(rooms, searchTerm);
+
+    if (results.empty()) {
+        cout << "Ничего не найдено." << endl;
+    } else {
+        displayData(results);
+    }
 }
 
-void App::displayData()
+
+
+void App::displayData(List &tempData)
 {
-    List tempData = db.getRecords();
     if (tempData.empty())
     {
-        std::cout << "No records found." << std::endl;
+        std::cout << "Нет записей" << std::endl;
     }
     else
     {
@@ -34,47 +95,41 @@ void App::displayData()
     }
 }
 
+void App::displayData()
+{
+    List tempData = db.getRecords();
+    displayData(tempData);
+}
+
 // Методы для добавления, удаления и редактирования данных
 void App::addRecord()
 {
-    int id, numGuests;
-    std::string roomType, checkInDate, checkOutDate, notes;
-    double pricePerNight, totalCost;
-
-    // Запрос информации у пользователя
-    std::cout << "Enter Room ID: ";
-    std::cin >> id;
-    std::cout << "Enter Room Type: ";
-    std::cin >> roomType;
-    std::cout << "Enter Price Per Night: ";
-    std::cin >> pricePerNight;
-    std::cout << "Enter Check-in Date: ";
-    std::cin >> checkInDate;
-    std::cout << "Enter Check-out Date: ";
-    std::cin >> checkOutDate;
-    std::cout << "Enter Number of Guests: ";
-    std::cin >> numGuests;
-    std::cout << "Enter Total Cost: ";
-    std::cin >> totalCost;
-    std::cout << "Enter Notes: ";
-    std::cin.ignore(); // Очистка буфера ввода
-    std::getline(std::cin, notes);
-
-    // Создание новой записи
-    HotelRoom newRecord(id, roomType, pricePerNight, checkInDate, checkOutDate, numGuests, totalCost, notes);
-
+    HotelRoom newRecord;
+    cin >> newRecord;
     // Добавление записи в базу данных
     db.addRecord(newRecord);
 }
 
 void App::deleteRecord()
 {
-    db.saveRecords();
+    displayData();
+    std::cout << "Введите id для удаления" << std::endl;
+    int id{};
+    std::cin >> id;
+    db.deleteRecord(id);
 }
 
 void App::editRecord()
 {
-    db.loadRecords();
+    displayData();
+    std::cout << "Введите id для изменения" << std::endl;
+    int id{};
+    std::cin >> id;
+
+    HotelRoom newRoom;
+    std::cin >> newRoom;
+
+    db.editRecord(id, newRoom);
 }
 
 CMenu *App::createMainMenu()
@@ -101,10 +156,10 @@ CMenu *App::createMainMenu()
 int App::start()
 {
     CMenu &menu = *createMainMenu();
-    db.loadRecords();
 
     while (m_is_running)
     {
+        db.loadRecords();
         cout << menu;
         cin >> menu;
         menu();

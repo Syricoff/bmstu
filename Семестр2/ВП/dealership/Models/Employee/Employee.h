@@ -4,6 +4,8 @@
 #include <iostream>
 #include <string>
 
+using std::cout;
+using std::cin;
 using std::string;
 
 namespace SNS
@@ -11,6 +13,7 @@ namespace SNS
     class Employee : public User
     {
     public:
+        Employee();
         Employee(string name, string surname, int age, string login,
                  string password, string post);
         string getPost() const;
@@ -19,6 +22,11 @@ namespace SNS
         void displayPrivateInfo() const;
         bool operator<(const Employee &employee);
         bool operator>(const Employee &employee);
+
+        friend std::ostream &operator<<(std::ostream &out, const Employee &employee);
+        friend std::istream &operator>>(std::istream &in, Employee &employee);
+
+
 
     protected:
         std::string post;
