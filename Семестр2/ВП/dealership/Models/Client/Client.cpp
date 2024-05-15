@@ -28,4 +28,13 @@ namespace SNS
     {
         this->service = service;
     }
+
+    bool Client::operator<(const Client &other) const{
+        return service < other.service;
+    }
+
+    bool Client::operator>(const Client &other) const{
+        return service > other.service;
+    }
+
 }

@@ -66,5 +66,13 @@ namespace SNS
         this->features = features;
     }
 
+    bool Car::operator<(const Car &other) const{
+        return year < other.year;
+    }
+
+    bool Car::operator>(const Car &other) const{
+        return year > other.year;
+    }
+
 }
 

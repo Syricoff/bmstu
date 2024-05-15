@@ -12,6 +12,8 @@ namespace SNS
         void setService(const std::string &service);
         void displayPublicInfo() const;
         void displayPrivateInfo() const;
+        bool operator<(const Client &client) const;
+        bool operator>(const Client &client) const;
 
     protected:
         std::string service;

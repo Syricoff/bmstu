@@ -3,21 +3,19 @@
 void DataBase::loadRecords()
 {
     std::fstream file(filePath, std::ios::in | std::ios::binary);
-    if (!file.is_open())
+    if (file.is_open())
     {
-        std::cerr << "Error opening file!" << std::endl;
-        return;
+        while (!file.eof())
+        {
+            HotelRoom room(0, "", 0.0, "", "", 0, 0.0, ""); // Создаем временный объект для чтения данных
+            file >> room;
+            if (!file.eof()) // Проверяем не достигли ли конца файла
+            {
+                records.push_back(room);
+            }
+        }
+        file.close();
     }
-    records.clear();
-
-    HotelRoom tempRoom(0, "", 0.0, "", "", 0, 0.0, "");
-    while (file.read(reinterpret_cast<char*>(&tempRoom), sizeof(tempRoom)))
-    {
-        records.push_back(tempRoom);
-        HotelRoom tempRoom(0, "", 0.0, "", "", 0, 0.0, "");
-    }
-
-    file.close();
 }
 
 void DataBase::saveRecords()
@@ -29,9 +27,9 @@ void DataBase::saveRecords()
         return;
     }
 
-    for (auto &room : records)
+    for (const auto &room : records)
     {
-        file.write(reinterpret_cast<const char*>(&room), sizeof(room));
+        file << room << "\n";
     }
     cout << "Good" << std::endl;
     file.close();

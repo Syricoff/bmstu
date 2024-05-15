@@ -3,6 +3,10 @@
 namespace SNS
 {
 
+    void clearScreen(){
+        system("clear");
+    }
+
     string getEnteredString(string text, ValidateString validate, std::istream &in)
     {
         string console_enter{};

@@ -11,6 +11,8 @@ using std::string;
 
 namespace SNS
 {
+
+    void clearScreen();
     // интерфейс для валидирования ввода строки
     using ValidateString = std::function<bool(string)>;
     // интерфейс для валидирования ввода числа

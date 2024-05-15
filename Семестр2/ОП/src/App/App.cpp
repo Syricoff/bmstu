@@ -27,12 +27,9 @@ void App::displayData()
     }
     else
     {
-        std::cout << std::format("{:<10}{:<15}{:<15}{:<15}{:<15}{:<10}{:<10}{}\n",
-                                 "ID", "Room Type", "Price Per Night", "Check-in Date", "Check-out Date", "Guests", "Total Cost", "Notes");
-
         for (const HotelRoom &record : tempData)
         {
-            record.displayInfo();
+            cout << record << endl;
         }
     }
 }

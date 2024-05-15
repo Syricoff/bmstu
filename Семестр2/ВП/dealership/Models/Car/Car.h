@@ -30,5 +30,8 @@ namespace SNS
         void setYear(int year);
         void setDescription(const std::string &description);
         void setFeatures(const std::string &features);
+
+        bool operator>(const Car &car) const;
+        bool operator<(const Car &car) const;
     };
 } // namespace SNS

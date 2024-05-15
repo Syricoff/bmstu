@@ -3,6 +3,7 @@
 #include "Models/Car/Car.h"
 #include "Models/Client/Client.h"
 #include "Models/Employee/Employee.h"
+#include "Tools/Tools.h"
 
 using namespace std;
 
@@ -37,7 +38,7 @@ int testClient(int index)
 
 void renderMain()
 {
-    system("clear");
+    SNS::clearScreen();
     cout << "Добро пожаловать в главное меню\n"
          << "============================================\n\n"
          << endl;
@@ -66,7 +67,7 @@ int main()
 
     // ожидаем ввод от пользователя
     cin >> menu;
-
+    clearScreen();
     // запускаем заданную функцию
     menu();
 

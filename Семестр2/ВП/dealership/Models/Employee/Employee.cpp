@@ -33,17 +33,8 @@ namespace SNS
     bool Employee::operator<(const Employee &employee){
         return post < employee.post;
     }
-
-    std::ostream &operator<<(std::ostream &out, const Employee &employee)
-    {
-        employee.displayPublicInfo();
-        employee.displayPrivateInfo();
-        return out;
+    bool Employee::operator>(const Employee &employee){
+        return post > employee.post;
     }
 
-    std::istream &operator>>(std::istream &in, Employee &employee) {
-        std::cout << "Enter post: ";
-        std::getline(in, employee.post);
-        return in;
-    }
 }

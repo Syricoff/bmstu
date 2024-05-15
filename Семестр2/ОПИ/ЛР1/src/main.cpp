@@ -4,26 +4,25 @@
 const int MATRIX_SIZE = 17;
 
 int matrix[MATRIX_SIZE][MATRIX_SIZE];
-bool tempOfNegative, flag = true;
 
 void generateRandomMatrix()
 {
-    for (int i = 0; i < MATRIX_SIZE; i++)
+    for (auto &i : matrix)
     {
-        for (int j = 0; j < MATRIX_SIZE; j++)
+        for (int &j : i)
         {
-            matrix[i][j] = rand() % 25 - 12;
+            j = std::rand() % 25 - 12;
         }
     }
 }
 
 void printMatrix()
 {
-    for (int i = 0; i < MATRIX_SIZE; i++)
+    for (auto &i : matrix)
     {
-        for (int j = 0; j < MATRIX_SIZE; j++)
+        for (int j : i)
         {
-            std::cout << matrix[i][j] << " ";
+            std::cout << j << " ";
         }
         std::cout << std::endl;
     }
@@ -31,7 +30,8 @@ void printMatrix()
 
 int calculateDigitSum(int number)
 {
-    return abs(number / 10 + number % 10);
+    number = abs(number);
+    return number / 10 + number % 10;
 }
 
 void modifyMatrix()
@@ -58,16 +58,14 @@ void checkRowForAlternatingSigns()
     {
         if (isNegative(matrix[numberOfRow][j]) == isNegative(matrix[numberOfRow][j - 1]))
         {
-            flag = false;
+            std::cout << "Строка содержит знакочередующиеся элементы" << std::endl;
             break;
         }
     }
-    std::cout << flag << std::endl;
 }
 
 void findFirstZeroElement()
 {
-    flag = true;
     for (int i = MATRIX_SIZE / 3; i < MATRIX_SIZE; i++)
     {
         for (int j = 0; j < MATRIX_SIZE; j++)
@@ -75,13 +73,8 @@ void findFirstZeroElement()
             if (matrix[i][j] == 0)
             {
                 std::cout << i << " " << j << std::endl;
-                flag = false;
-                break;
+                return;
             }
-        }
-        if (!flag)
-        {
-            break;
         }
     }
 }

@@ -17,8 +17,6 @@ namespace SNS
         void setPost(const string &post);
         void displayPublicInfo() const;
         void displayPrivateInfo() const;
-        friend std::ostream &operator<<(std::ostream &out, const Employee &employee);
-        friend std::istream &operator>>(std::istream &in, Employee &employee);
         bool operator<(const Employee &employee);
         bool operator>(const Employee &employee);
 
