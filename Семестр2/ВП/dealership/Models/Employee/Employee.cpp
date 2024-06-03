@@ -10,6 +10,7 @@ namespace SNS
         : User(name, surname, age, login, password), post(post)
     {
     }
+    Employee::~Employee(){}
 
     std::string Employee::getPost() const
     {

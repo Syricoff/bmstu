@@ -5,6 +5,7 @@ namespace SNS
     Client::Client() : User()
     {
     }
+    Client::~Client() {}
     Client::Client(std::string name, std::string surname, int age, std::string login,
                    std::string password, std::string service)
         : User(name, surname, age, login, password), service(service)
@@ -58,7 +59,18 @@ namespace SNS
         std::string name, surname, login, password, service;
         int age;
 
-        in >> name >> surname >> age >> login >> password >> service;
+        cout << "Enter name: ";
+        in >> name;
+        cout << "Enter surname: ";
+        in >> surname;
+        cout << "Enter age: ";
+        in >> age;
+        cout << "Enter login: ";
+        in >> login;
+        cout << "Enter password: ";
+        in >> password;
+        cout << "Enter service: ";
+        in >> service;
 
         client.setName(name);
         client.setSurname(surname);

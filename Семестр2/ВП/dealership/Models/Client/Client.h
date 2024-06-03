@@ -1,5 +1,9 @@
 #pragma once
 #include "../User/User.h"
+#include <iostream>
+
+using std::cout;
+using std::endl;
 
 namespace SNS
 {
@@ -7,6 +11,7 @@ namespace SNS
     {
     public:
         Client();
+        ~Client();
         Client(std::string, std::string, int, std::string,
                std::string, std::string);
         std::string getService() const;

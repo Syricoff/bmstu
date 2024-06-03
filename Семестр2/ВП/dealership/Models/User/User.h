@@ -2,6 +2,7 @@
 
 #include <iostream>
 #include <vector>
+#include <../MyVector/MyVector.h>
 namespace SNS
 {
     class User
@@ -10,6 +11,7 @@ namespace SNS
         using UserList = std::vector<User *>;
 
         User() = default;
+
         User(std::string m_name, std::string, int, std::string, std::string);
         std::string m_name;
         std::string m_surname;

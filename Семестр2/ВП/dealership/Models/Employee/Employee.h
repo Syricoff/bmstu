@@ -14,6 +14,7 @@ namespace SNS
     {
     public:
         Employee();
+        ~Employee();
         Employee(string name, string surname, int age, string login,
                  string password, string post);
         string getPost() const;

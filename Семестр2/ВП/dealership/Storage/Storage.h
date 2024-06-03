@@ -27,5 +27,7 @@ public:
 
 private:
     explicit Storage(string root_path);
+
     static Storage *s_storage;
+    
 };
