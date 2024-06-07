@@ -5,11 +5,17 @@ namespace SNS
     Client::Client() : User()
     {
     }
+
     Client::~Client() {}
+
     Client::Client(std::string name, std::string surname, int age, std::string login,
                    std::string password, std::string service)
         : User(name, surname, age, login, password), service(service)
     {
+        if (name.empty() || surname.empty() || login.empty() || password.empty())
+        {
+            throw ClientException("Некорректные данные клиента");
+        }
     }
 
     void Client::displayPublicInfo() const
@@ -35,12 +41,12 @@ namespace SNS
 
     bool Client::operator<(const Client &other) const
     {
-        return service < other.service;
+        return m_name < other.getName();
     }
 
     bool Client::operator>(const Client &other) const
     {
-        return service > other.service;
+        return m_name > other.getName();
     }
 
     std::ostream &operator<<(std::ostream &out, const Client &client)
@@ -71,6 +77,11 @@ namespace SNS
         in >> password;
         cout << "Enter service: ";
         in >> service;
+
+        if (name.empty() || surname.empty() || login.empty() || password.empty())
+        {
+            throw ClientException("Некорректные данные клиента");
+        }
 
         client.setName(name);
         client.setSurname(surname);

@@ -4,7 +4,7 @@
 #include <string>
 #include <vector>
 
-#include "../Tools/Tools.h"
+#include "./Tools/Tools.h"
 #include "../CMenuItem/CMenuItem.h"
 
 using std::string;

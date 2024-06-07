@@ -1,6 +1,7 @@
 #pragma once
 #include "../User/User.h"
 #include <iostream>
+#include "./Exception/Exception.h"
 
 using std::cout;
 using std::endl;

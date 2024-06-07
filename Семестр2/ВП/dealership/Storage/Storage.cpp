@@ -1,4 +1,5 @@
 #include "Storage.h"
+#include "../Exception/Exception.h"
 
 Storage *Storage::s_storage{};
 Storage::Storage(string root_path){};
@@ -15,7 +16,6 @@ Storage &Storage::createStorage(string root_path)
 Storage::~Storage()
 {
 
-    // удаляем корабли
     for (auto *pItem : users_list)
     {
         delete pItem;
@@ -29,11 +29,11 @@ Storage::~Storage()
 
 Storage *Storage::getStorage()
 {
-
-    // проверка ошибки
-    if (s_storage == nullptr)
-    {
-        std::cerr << "Вызов getStore раньше чем createStore! Получен нулевой указатель!" << std::endl;
+    try {
+        if (s_storage == nullptr) throw SNS::StorageException("\nВызов getStore раньше чем createStore! Получен нулевой указатель!\n");
+    }
+    catch (SNS::StorageException & invalid_store) {
+        std::cerr << invalid_store.what();
     }
 
     return s_storage;

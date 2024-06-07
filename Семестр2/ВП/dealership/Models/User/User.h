@@ -2,7 +2,7 @@
 
 #include <iostream>
 #include <vector>
-#include <../MyVector/MyVector.h>
+#include <./MyVector/MyVector.h>
 namespace SNS
 {
     class User

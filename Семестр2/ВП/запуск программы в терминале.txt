@@ -1,6 +1,2 @@
-Для создания многофайлового консольного приложения в среде Visual Studio Code необходимо создать папку проекта. Например, TestMenu.
-В папке TestMenu создать папку menu и файл с основной программой main.cpp.
-В папку menu необходимо вложить по дфай файла .h (заголовочный)  и .cpp (файл реализации) для классов CMenu и  CMenuItem.
-Далее необходимо прокомпилировать все .cpp файлы командой в терминале, выполнив команду: 
-g++ .\main.cpp .\menu\CMenuItem.cpp .\menu\CMenu.cpp
-После этого запустить программу в терминале командой .\a.exe в ОС Windows или ./a.out в ОС Linux.
+g++ -std=c++20 main.cpp -I. ./Exception/Exception.cpp ./Menu/CMenu/CMenu.cpp ./Menu/CMenuItem/CMenuItem.cpp ./Models/Car/Car.cpp ./Models/User/User.cpp ./Models/Client/Client.cpp ./Models/Employee/Employee.cpp ./MyVector/MyVector.cpp ./Storage/Storage.cpp ./Tools/Tools.cpp -o myproject && ./myproject
+ 

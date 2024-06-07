@@ -3,7 +3,7 @@
 #include <string>
 #include <iostream>
 #include <vector>
-#include "./Exception/Exception.h"
+#include "../Exception/Exception.h"
 
 using std::cout;
 using std::string;
@@ -26,7 +26,7 @@ namespace SNS
 
         using CarsList = std::vector<Car *>;
 
-        void displayInfo();
+        void displayInfo() const;
 
         std::string getBrand() const;
         double getPrice() const;

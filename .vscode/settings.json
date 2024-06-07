@@ -56,7 +56,12 @@
         "streambuf": "cpp",
         "typeinfo": "cpp",
         "variant": "cpp",
-        "chrono": "cpp"
+        "chrono": "cpp",
+        "list": "cpp",
+        "map": "cpp",
+        "ratio": "cpp",
+        "text_encoding": "cpp",
+        "set": "cpp"
     },
     "cmake.sourceDirectory": "/home/syricoff/bmstu/Семестр2/ВП/dealership",
     "dotnet.defaultSolution": "ПР1.sln"

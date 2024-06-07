@@ -8,12 +8,16 @@ include_directories(Menu)
 include_directories(Tools)
 include_directories(Storage)
 include_directories(MyVector)
+include_directories(Exception)
+
 
 add_subdirectory(Models)
 add_subdirectory(Menu)
 add_subdirectory(Tools)
 add_subdirectory(Storage)
 add_subdirectory(MyVector)
+add_subdirectory(Exception)
+
 
 
 add_executable(${PROJECT_NAME} main.cpp)

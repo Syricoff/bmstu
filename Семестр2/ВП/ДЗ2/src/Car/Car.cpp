@@ -16,7 +16,7 @@ namespace SNS
         }
     }
 
-    void Car::displayInfo()
+    void Car::displayInfo() const
     {
         std::cout << "Brand: " << brand << std::endl;
         std::cout << "Price: " << price << std::endl;
